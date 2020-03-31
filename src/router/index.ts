@@ -21,18 +21,31 @@ const routes = [
   {
     path: '/signIn',
     name: 'signIn',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    meta: {
+      hideHeader: true
+    },
     component: () => import(/* webpackChunkName: "signIn" */ '@/views/signIn/index.vue')
   },
   {
     path: '/signUp',
     name: 'signUp',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "signIn" */ '@/views/signUp/index.vue')
+    meta: {
+      hideHeader: true
+    },
+    component: () => import(/* webpackChunkName: "signUp" */ '@/views/signUp/index.vue')
+  },
+  {
+    path: '/forgePsw',
+    name: 'forgePsw',
+    meta: {
+      hideHeader: true
+    },
+    component: () => import(/* webpackChunkName: "forgePsw" */ '@/views/forgePsw/index.vue')
+  },
+  {
+    path: '/home',
+    name: 'home',
+    component: () => import(/* webpackChunkName: "home" */ '@/views/home/index.vue')
   }
 ]
 

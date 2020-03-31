@@ -1,38 +1,38 @@
 <template>
   <div class="sign">
-    <div class="logo"><a href="/"><img src="//cdn2.jianshu.io/assets/web/logo-58fd04f6f0de908401aa561cda6a0688.png"
-             alt="Logo"></a></div>
+    <div class="logo">
+      <a href="/">
+        <img alt="Logo" src="../../assets/img/logo.png" />
+      </a>
+    </div>
     <div class="main">
-
       <h4 class="title">
         <div class="normal-title">
           <router-link :to="{name:'signIn'}">登录</router-link>
           <b>·</b>
-          <router-link class="active"
-                       id="js-sign-up-btn"
-                       :to="{name:'signUp'}">注册</router-link>
+          <router-link :to="{name:'signUp'}" class="active" id="js-sign-up-btn">注册</router-link>
         </div>
       </h4>
 
       <div class="js-sign-up-container">
-        <form class="new_user"
-              id="new_user"
-              action="/users/register"
-              accept-charset="UTF-8"
-              method="post"><input name="utf8"
-                 type="hidden"
-                 value="✓"><input type="hidden"
-                 name="authenticity_token"
-                 value="MKJ4VDV2DnIi4CtGTRQJLTGebrZ33l5sbxoQeZHzqhQMjtJD/Y2HK9LsxzrRGBM1R/vtwiHY5xT29stwsO2xPg==">
+        <form
+          accept-charset="UTF-8"
+          action="/users/register"
+          class="new_user"
+          id="new_user"
+          method="post"
+        >
+          <input name="utf8" type="hidden" value="✓" />
+          <input
+            name="authenticity_token"
+            type="hidden"
+            value="MKJ4VDV2DnIi4CtGTRQJLTGebrZ33l5sbxoQeZHzqhQMjtJD/Y2HK9LsxzrRGBM1R/vtwiHY5xT29stwsO2xPg=="
+          />
           <div class="input-prepend restyle">
-            <input placeholder="你的昵称"
-                   type="text"
-                   value=""
-                   name="user[nickname]"
-                   id="user_nickname">
+            <input id="user_nickname" name="user[nickname]" placeholder="你的昵称" type="text" value />
             <i class="iconfont ic-user"></i>
           </div>
-          <div class="input-prepend restyle no-radius js-normal">
+          <!-- <div class="input-prepend restyle no-radius js-normal">
             <input type="hidden"
                    value="CN"
                    name="user[mobile_number_country_code]"
@@ -82,32 +82,30 @@
                      class="geetest"></div>
               </div>
             </div>
-          </div>
-          <input type="hidden"
-                 name="security_number"
-                 id="security_number">
+          </div>-->
+          <input id="security_number" name="security_number" type="hidden" />
           <div class="input-prepend">
-            <input placeholder="设置密码"
-                   type="password"
-                   name="user[password]"
-                   id="user_password">
+            <input id="user_password" name="user[password]" placeholder="设置密码" type="password" />
             <i class="iconfont ic-password"></i>
           </div>
-          <input type="submit"
-                 name="commit"
-                 value="注册"
-                 class="sign-up-button"
-                 id="sign_up_btn"
-                 data-disable-with="注册">
-          <p class="sign-up-msg">点击 “注册” 即表示您同意并愿意遵守简书<br> <a target="_blank"
-               href="http://www.jianshu.com/p/c44d171298ce">用户协议</a> 和 <a target="_blank"
-               href="http://www.jianshu.com/p/2ov8x3">隐私政策</a> 。</p>
+          <input
+            class="sign-up-button"
+            data-disable-with="注册"
+            id="sign_up_btn"
+            name="commit"
+            type="submit"
+            value="注册"
+          />
+          <p class="sign-up-msg">
+            点击 “注册” 即表示您同意并愿意遵守面试
+            <br />
+            <a href="http://www.jianshu.com/p/c44d171298ce" target="_blank">用户协议</a> 和
+            <a href="http://www.jianshu.com/p/2ov8x3" target="_blank">隐私政策</a> 。
+          </p>
         </form>
       </div>
-
     </div>
   </div>
-
 </template>
 
 <script>

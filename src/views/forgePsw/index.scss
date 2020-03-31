@@ -495,40 +495,27 @@
   background-position: -80px 0;
 }
 
-@media (-webkit-min-device-pixel-ratio: 1.25),
-(min-resolution: 1.25dppx),
-(min-resolution: 120dpi) {
-  .sign .icheckbox_square-green {
-    background-image: url(//cdn2.jianshu.io/assets/radio/green@2x-7f6fb7d319eec1b0f9e6cb4bc65b1146.png);
-    background-size: 200px 20px;
-  }
-}
 
 .geetest_panel_box>* {
   box-sizing: content-box;
 }
 
-@media (max-width: 768px) {
-  body {
-    min-width: 0;
-  }
+.sign .return {
+  margin-left: -8px;
+  color: #969696;
+}
 
-  .sign {
-    height: auto;
-    min-height: 0;
-    background-color: transparent;
-  }
+.sign .reset-title {
+  color: #333;
 
-  .sign .logo {
-    display: none;
-  }
+  font-size: 18px;
+}
 
-  .sign .main {
-    position: absolute;
-    left: 50%;
-    margin: 0 0 0 -200px;
-    box-shadow: none;
-  }
+.sign .reset-title,
+.sign .title {
+  margin: 0 auto 50px;
+  padding: 10px;
+  font-weight: 700;
 }
 
 /*# sourceMappingURL=entry-725103a0668ccb1789d4.css.map*/
