@@ -27,26 +27,80 @@
             <li>
               <a href>Python</a>
             </li>
-            <li>
+            <!-- <li>
               <a href="#">|</a>
-            </li>
+            </li>-->
           </ul>
         </nav>
       </div>
-      <div class="right">
+      <div class="search">
+        <el-autocomplete
+          :fetch-suggestions="querySearch"
+          @select="handleSelect"
+          placeholder="搜索想寻找的面试精要"
+          popper-class="my-autocomplete"
+          v-model="state"
+        >
+          <i @click="handleIconClick" class="el-icon-edit el-input__icon" slot="suffix"></i>
+          <template slot-scope="{ item }">
+            <div class="name">{{ item.value }}</div>
+            <span class="addr">{{ item.address }}</span>
+          </template>
+        </el-autocomplete>
+      </div>
+      <div class="right-"></div>
+      <div class="right-other vertical-centering">
+        <a class="send" href>发题挣钱+</a>
         <a href>开发工具</a>
+      </div>
+      <div class="right-user">
+        <a href>登录</a>
+        |
+        <a href>注册</a>
       </div>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-  // import { Component, Prop, Vue } from 'vue-property-decorator';
-
-  // @Component
-  // export default class HelloWorld extends Vue {
-  //   @Prop() private msg!: string;
-  // }
+<script>
+  import { Autocomplete } from 'element-ui'
+  export default {
+    data() {
+      return {
+        restaurants: [],
+        state: ''
+      }
+    },
+    methods: {
+      querySearch(queryString, cb) {
+        var restaurants = this.restaurants
+        var results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants
+        // 调用 callback 返回建议列表的数据
+        cb(results)
+      },
+      createFilter(queryString) {
+        return restaurant => {
+          return restaurant.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0
+        }
+      },
+      loadAll() {
+        return [
+          { value: '三全鲜食（北新泾店）', address: '长宁区新渔路144号' },
+          { value: 'Hot honey 首尔炸鸡（仙霞路）', address: '上海市长宁区淞虹路661号' },
+          { value: '新旺角茶餐厅', address: '上海市普陀区真北路988号创邑金沙谷6号楼113' }
+        ]
+      },
+      handleSelect(item) {
+        console.log(item)
+      },
+      handleIconClick(ev) {
+        console.log(ev)
+      }
+    },
+    mounted() {
+      this.restaurants = this.loadAll()
+    }
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -62,7 +116,7 @@
     z-index: 100;
     .centre {
       overflow: hidden;
-      width: 990px;
+      width: 1200px;
       min-width: 990px;
       margin: 0 auto;
       display: flex;
@@ -73,6 +127,21 @@
       z-index: 100;
       .logo {
         float: left;
+      }
+    }
+    .right-other {
+      display: flex;
+      align-items: center;
+      .send {
+        font-size: 24px;
+        color: #6190e8;
+        margin-right: 10px;
+      }
+    }
+    .right-user {
+      // width: 120px;
+      a {
+        margin: 10px 0;
       }
     }
   }
@@ -104,7 +173,6 @@
   /* nav栏 */
   nav {
     float: left;
-    padding-right: 100px;
     ul {
       li {
         float: left;
@@ -177,6 +245,25 @@
       height: 100%;
       width: 2px;
       background-color: #6190e8;
+    }
+  }
+  .my-autocomplete {
+    li {
+      line-height: normal;
+      padding: 7px;
+
+      .name {
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+      .addr {
+        font-size: 12px;
+        color: #b4b4b4;
+      }
+
+      .highlighted .addr {
+        color: #ddd;
+      }
     }
   }
 </style>

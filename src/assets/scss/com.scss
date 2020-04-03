@@ -1,0 +1,102 @@
+$themeColor: #e46798; //主题色
+$btnColor: #e46798; //按钮颜色
+$newColor:#6190e8;
+
+@font-face {
+	font-family: uniicons;
+	font-weight: normal;
+	font-style: normal;
+	src: url('https://img-cdn-qiniu.dcloud.net.cn/fonts/uni.ttf') format('truetype');
+}
+
+/*垂直居中  */
+.vertical-centering {
+	display: -moz-box;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	align-content: center;
+	align-items: center;
+}
+
+/*水平居中  */
+.horizontally {
+	display: -moz-box;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	justify-content: center;
+	justify-items: center;
+}
+
+/*水平垂直居中  */
+.allCenter {
+	display: -moz-box;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	justify-items: center;
+}
+
+/*通用按钮  */
+.defaultBtn {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	width: 670upx;
+	background: $btnColor;
+	border-radius: 8upx;
+	letter-spacing: 20upx;
+	font-size: 36upx;
+	color: #FFFFFF;
+	height: 92upx;
+}
+
+button[disabled]:not([type]) {
+	color: #999999 !important;
+	background-color: #ffffff;
+	border: 1px solid #f0f0f0 !important;
+}
+
+/*全屏背景色  */
+.bg-color {
+	height: 100%;
+	background: #FFFFFF;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+button::after {
+	border: none;
+}
+
+.font20 {
+	font-size: 20px;
+	height: 40px;
+	line-height: 40px;
+}
+
+.font22 {
+	font-size: 24px;
+	height: 40px;
+	line-height: 40px;
+}
+
+.main {
+	width: 1200px;
+	margin: 0 auto;
+	min-width: 1200px;
+	max-width: 1440px;
+	background-color: #ffffff;
+	padding: 20px;
+}
