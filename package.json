@@ -1,7 +1,7 @@
 {
   "name": "interview_note",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "alpha": "vue-cli-service build --mode alpha",
@@ -10,6 +10,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "element-ui": "^2.13.0",
     "uglifyjs-webpack-plugin": "^2.2.0",

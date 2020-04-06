@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home ">
     <!-- <img alt="Vue logo"
     src="../assets/logo.png">-->
     <el-carousel height="300px" trigger="click">
@@ -46,7 +46,7 @@
           </div>
         </el-col>
       </el-row>
-      <el-pagination :total="1000" background layout="prev, pager, next"></el-pagination>
+      <el-pagination class="page-box" :total="1000" background layout="prev, pager, next"></el-pagination>
     </main>
   </div>
 </template>
@@ -70,7 +70,7 @@
     }
   }
 </script>
-<style lang="scss" scoped>
+<style lang="scss" >
   .el-carousel__item:nth-child(2n) {
     background-color: #99a9bf;
   }
@@ -78,9 +78,18 @@
   .el-carousel__item:nth-child(2n + 1) {
     background-color: #d3dce6;
   }
-  .el-pagination.is-background .el-pager li {
-    border: 1px solid #eeeeee !important;
-    background: #ffffff !important;
+  .page-box {
+    margin-top: 20px;
+    .el-pager li {
+      border: 1px solid #eeeeee ;
+      background: #ffffff ;
+    }
+  }
+  .home{
+    .main{
+        width: 1200px;
+        margin:0 auto;
+      }
   }
   .items-list {
     // display: flex;

@@ -5,11 +5,11 @@ import Home from '@/views/Home.vue'
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: () => import(/* webpackChunkName:"home" */ '@/views/Home.vue')
-  },
+  // {
+  //   path: '/',
+  //   name: 'Home',
+  //   component: () => import(/* webpackChunkName:"home" */ '@/views/Home.vue')
+  // },
   {
     path: '/about',
     name: 'About',
@@ -43,9 +43,19 @@ const routes = [
     component: () => import(/* webpackChunkName: "forgePsw" */ '@/views/forgePsw/index.vue')
   },
   {
-    path: '/home',
+    path: '/',
     name: 'home',
     component: () => import(/* webpackChunkName: "home" */ '@/views/home/index.vue')
+  },
+  {
+    path: '/articleList',
+    name: 'articleList',
+    component: () => import(/* webpackChunkName: "articleList" */ '@/views/articleList/index.vue')
+  },
+  {
+    path: '/articleDetail',
+    name: 'articleDetail',
+    component: () => import(/* webpackChunkName: "articleDetail" */ '@/views/articleDetail/index.vue')
   }
 ]
 

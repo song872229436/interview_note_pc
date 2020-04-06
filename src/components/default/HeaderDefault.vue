@@ -1,63 +1,69 @@
 <template>
   <div class="header">
     <div class="centre">
-      <div class="logo">
-        <img alt="面试笔记" src="../../assets/img/logo.png" />
+      <div class="vertical-centering">
+        <div class="logo">
+          <img alt="面试笔记" src="../../assets/img/logo.png" />
+        </div>
+        <div class="nav-list" id="navList">
+          <span class="line"></span>
+          <span class="line"></span>
+          <span class="line"></span>
+        </div>
+        <div class="navigation" id="navbox">
+          <nav>
+            <ul>
+              <li class="active">
+                <a href>前端</a>
+              </li>
+              <li>
+                <a href>后端</a>
+              </li>
+              <li>
+                <a href>IOS</a>
+              </li>
+              <li>
+                <a href>Android</a>
+              </li>
+              <li>
+                <a href>Python</a>
+              </li>
+              <!-- <li>
+                <a href="#">|</a>
+              </li>-->
+            </ul>
+          </nav>
+        </div>
       </div>
-      <div class="nav-list" id="navList">
-        <span class="line"></span>
-        <span class="line"></span>
-        <span class="line"></span>
+      <div class="right-box vertical-centering">
+         <div class="search">
+            <el-autocomplete
+              :fetch-suggestions="querySearch"
+              @select="handleSelect"
+              placeholder="搜索想寻找的面试精要"
+              popper-class="my-autocomplete"
+              v-model="state"
+            >
+              <i @click="handleIconClick" class="el-icon-edit el-input__icon" slot="suffix"></i>
+              <template slot-scope="{ item }">
+                <div class="name">{{ item.value }}</div>
+                <span class="addr">{{ item.address }}</span>
+              </template>
+            </el-autocomplete>
+          </div>
+          <div class="right-other vertical-centering">
+            <a class="send" href>发题挣钱+</a>
+            <a href>开发工具</a>
+          </div>
+          <div class="right-user">
+            <!-- <a href="">个人中心</!-->
+            <a href>登录</a>
+            <el-divider direction="vertical"></el-divider>
+            <a href>注册</a>
+          </div>
       </div>
-      <div class="navigation" id="navbox">
-        <nav>
-          <ul>
-            <li class="active">
-              <a href>前端</a>
-            </li>
-            <li>
-              <a href>后端</a>
-            </li>
-            <li>
-              <a href>IOS</a>
-            </li>
-            <li>
-              <a href>Android</a>
-            </li>
-            <li>
-              <a href>Python</a>
-            </li>
-            <!-- <li>
-              <a href="#">|</a>
-            </li>-->
-          </ul>
-        </nav>
-      </div>
-      <div class="search">
-        <el-autocomplete
-          :fetch-suggestions="querySearch"
-          @select="handleSelect"
-          placeholder="搜索想寻找的面试精要"
-          popper-class="my-autocomplete"
-          v-model="state"
-        >
-          <i @click="handleIconClick" class="el-icon-edit el-input__icon" slot="suffix"></i>
-          <template slot-scope="{ item }">
-            <div class="name">{{ item.value }}</div>
-            <span class="addr">{{ item.address }}</span>
-          </template>
-        </el-autocomplete>
-      </div>
-      <div class="right-"></div>
-      <div class="right-other vertical-centering">
-        <a class="send" href>发题挣钱+</a>
-        <a href>开发工具</a>
-      </div>
-      <div class="right-user">
-        <a href>登录</a>
-        |
-        <a href>注册</a>
-      </div>
+      
+     
     </div>
   </div>
 </template>
@@ -73,8 +79,8 @@
     },
     methods: {
       querySearch(queryString, cb) {
-        var restaurants = this.restaurants
-        var results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants
+        const restaurants = this.restaurants
+        const results = queryString ? restaurants.filter(this.createFilter(queryString)) : restaurants
         // 调用 callback 返回建议列表的数据
         cb(results)
       },
@@ -128,6 +134,10 @@
       .logo {
         float: left;
       }
+      .right-box {
+        width: 44%;
+        justify-content: space-between;
+      }
     }
     .right-other {
       display: flex;
@@ -180,7 +190,7 @@
         line-height: 60px;
         text-align: center;
         font-size: 16px;
-        margin: 0 10px;
+        // margin: 0 10px;
         position: relative;
         &.active {
           &::before {

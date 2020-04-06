@@ -92,11 +92,14 @@ button::after {
 	line-height: 40px;
 }
 
-.main {
-	width: 1200px;
-	margin: 0 auto;
-	min-width: 1200px;
-	max-width: 1440px;
-	background-color: #ffffff;
-	padding: 20px;
+.mainPage {
+	width: 1160px;
+    margin: 0 auto;
+    min-width: 1160px;
+    max-width: 1440px;
+    background-color: #ffffff;
+    padding: 20px;
+    position: absolute;
+    left: calc(50% - 600px);
+    top: 60px;
 }

@@ -1,8 +1,9 @@
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
-const CompressionWebpackPlugin = require('compression-webpack-plugin')
+// import UglifyJsPlugin from 'uglifyjs-webpack-plugin'
+// const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
-const productionGzipExtensions = ['js', 'css'] //压缩
+// const productionGzipExtensions = ['js', 'css'] //压缩
 
 const env = process.env.NODE_ENV
 console.log(env)
@@ -52,12 +53,14 @@ module.exports = {
     //入口文件
     // config.entry.app = ['babel-polyfill', './src/main.js']
     //删除console插件
-    let plugins = [
+    const plugins = [
       new UglifyJsPlugin({
         uglifyOptions: {
           warnings: false,
           compress: {
+            // eslint-disable-next-line @typescript-eslint/camelcase
             drop_console: true,
+            // eslint-disable-next-line @typescript-eslint/camelcase
             drop_debugger: true
           },
           output: {
