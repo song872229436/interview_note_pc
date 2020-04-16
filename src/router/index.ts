@@ -56,6 +56,16 @@ const routes = [
     path: '/articleDetail',
     name: 'articleDetail',
     component: () => import(/* webpackChunkName: "articleDetail" */ '@/views/articleDetail/index.vue')
+  },
+  {
+	path: '/articleManage',
+	name: 'articleManage',
+	component: () => import(/* webpackChunkName: "articleManage" */ '@/views/articleManage/index.vue')
+  },
+  {
+  	path: '/release',
+  	name: 'release',
+  	component: () => import(/* webpackChunkName: "release" */ '@/views/release/index.vue')
   }
 ]
 

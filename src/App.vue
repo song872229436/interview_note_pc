@@ -35,8 +35,9 @@
     color: #2c3e50;
     margin: 0;
     padding: 0;
-    background: $bg;
-    height: 100%;
+    // background: $bg;
+	min-height: 100%;
+    height: auto;
     width: 100%;
     position: absolute;
   }
