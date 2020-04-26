@@ -56,10 +56,14 @@
             <a href>开发工具</a>
           </div>
           <div class="right-user">
-            <!-- <a href="">个人中心</!-->
-            <a href>登录</a>
+			<!-- 未登录 -->
+            <!-- <a href>登录</a>
             <el-divider direction="vertical"></el-divider>
-            <a href>注册</a>
+            <a href>注册</a> -->
+			
+			<!-- 已登录 -->
+			<!-- <a href="">个人中心</a> -->
+			<personCenterBtn></personCenterBtn>
           </div>
       </div>
       
@@ -70,7 +74,11 @@
 
 <script>
   import { Autocomplete } from 'element-ui'
+  import personCenterBtn from '../personCenterBtn.vue'
   export default {
+	components:{
+		personCenterBtn
+	},
     data() {
       return {
         restaurants: [],
@@ -135,7 +143,7 @@
         float: left;
       }
       .right-box {
-        width: 44%;
+        width: 47%;
         justify-content: space-between;
       }
     }
