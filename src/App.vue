@@ -9,19 +9,21 @@
   </div>
 </template>
 <script>
-	import HeaderDefault from '@/components/default/HeaderDefault.vue';
-	export default {
-		name: 'interview_note_pc',
-		components:{
-			HeaderDefault
-		},
-		data: () => {
-			return {
-				process: process.env.NODE_ENV,
-				test: 'te'
-			}
-		}
-	}
+  import HeaderDefault from '@/components/default/HeaderDefault.vue'
+
+  export default {
+    name: 'interview_note_pc',
+    components: {
+      HeaderDefault
+    },
+    data: () => {
+      return {
+        process: process.env.NODE_ENV,
+        test: 'te'
+      }
+    },
+    created() {}
+  }
 </script>
 <style lang="scss">
   @import 'assets/scss/index.scss';
@@ -35,7 +37,7 @@
     padding: 0;
     // background: $bg;
 	min-height: 100%;
-    height: 100%;
+    height: auto;
     width: 100%;
     position: absolute;
   }

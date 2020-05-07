@@ -57,19 +57,13 @@
           </div>
           <div class="right-user">
 			<!-- 未登录 -->
-			<div v-show="!isLogin">
-				<router-link to="/signIn">登录</router-link>
-				<el-divider direction="vertical"></el-divider>
-				<router-link to="/signUp">注册</router-link>
-			</div>
-           
+            <!-- <a href>登录</a>
+            <el-divider direction="vertical"></el-divider>
+            <a href>注册</a> -->
 			
 			<!-- 已登录 -->
 			<!-- <a href="">个人中心</a> -->
-			<div v-show="isLogin">
-				<personCenterBtn></personCenterBtn>
-			</div>
-			
+			<personCenterBtn></personCenterBtn>
           </div>
       </div>
       
@@ -88,20 +82,9 @@
     data() {
       return {
         restaurants: [],
-        state: '',
+        state: ''
       }
     },
-	computed:{
-		isLogin(){
-			//通过sessionstorage获取vuex里isLogin的状态
-			if(sessionStorage.getItem("userName") && sessionStorage.getItem("userToken")){
-				this.$store.commit('userStatus',sessionStorage.getItem("useName"))
-			}else{
-				this.$store.commit('userStatus',null)
-			}
-			return this.$store.getters.isLogin
-		}
-	},
     methods: {
       querySearch(queryString, cb) {
         const restaurants = this.restaurants
