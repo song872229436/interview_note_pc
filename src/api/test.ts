@@ -15,7 +15,7 @@ const article = {
     return axios.get(`${base.sq}/topic/${id}`, {
       params: params
     })
-  }
+  },
   // post提交
   // login(params) {
   //   return axios.post(`${base.sq}/accesstoken`, qs.stringify(params))
