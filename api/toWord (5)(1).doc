@@ -1,0 +1,2208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="application/msword"/>
+    <title>toWord</title>
+    <style type="text/css">
+        .bg {
+            color: #fff;
+            background-color: #559e68;
+        }
+
+        table {
+            border: 1px solid #dbe3e4;
+            table-layout: fixed;
+        }
+
+        tr {
+            height: 32px;
+            font-size: 12px;
+        }
+
+        td {
+            padding: 0px 5px 0px 5px;
+            border: 1px solid #dbe3e4;
+            height: 32px;
+            overflow: hidden;
+            word-break: break-all;
+            word-wrap: break-word;
+            font-size: 14px;
+        }
+
+        .specialHeight {
+            height: 40px;
+        }
+
+        .first_title {
+            height: 60px;
+            line-height: 60px;
+            margin: 0;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .second_title {
+            height: 40px;
+            line-height: 40px;
+            margin: 0;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .doc_title {
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .download_btn {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+<div style="width:1000px; margin: 0 auto">
+    <div>
+        <p class="doc_title">interview.notes.（1.0.0-SNAPSHOT）</p>
+        
+        <br>
+    </div>
+    <div style="margin-bottom:20px;">
+        <!--这个是类的说明-->
+        <h4 class="first_title">word-controller</h4>
+        <div>
+
+            <!--这个是每个请求的说明，方便生成文档后进行整理-->
+            
+            <h5 class="second_title">1）word</h5>
+
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr class="bg">
+                    <td colspan="5">word</td>
+                </tr>
+                <tr>
+                    <td width="25%">接口描述</td>
+                    <td colspan="4">word</td>
+                </tr>
+                <tr>
+                    <td>URL</td>
+                    <td colspan="4">/api/word/downloadWord</td>
+                </tr>
+                <tr>
+                    <td>请求方式</td>
+                    <td colspan="4">get,head,post,put,delete,options,patch</td>
+                </tr>
+                <tr>
+                    <td>请求类型</td>
+                    <td colspan="4">application/json</td>
+                </tr>
+                <tr>
+                    <td>返回类型</td>
+                    <td colspan="4">*/*</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>参数名</td>
+                    <td>数据类型</td>
+                    <td>参数类型</td>
+                    <td>是否必填</td>
+                    <td>说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>url</td>
+                    <td>string</td>
+                    <td>query</td>
+                    
+                    <td>N</td>
+                    <td>url</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>状态码</td>
+                    <td colspan="2">描述</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>200</td>
+                    <td colspan="2">OK</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>401</td>
+                    <td colspan="2">Unauthorized</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>403</td>
+                    <td colspan="2">Forbidden</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>404</td>
+                    <td colspan="2">Not Found</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>返回属性名</td>
+                    <td colspan="2">类型</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                
+
+                <tr class="bg">
+                    <td colspan="5">示例</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">请求参数</td>
+                    <td colspan="4">{&quot;url&quot;:&quot;string&quot;}</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">返回值</td>
+                    <td colspan="4"></td>
+                </tr>
+
+            </table>
+        </div>
+        <div>
+
+            <!--这个是每个请求的说明，方便生成文档后进行整理-->
+            <br>
+            <h5 class="second_title">2）getWord</h5>
+
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr class="bg">
+                    <td colspan="5">getWord</td>
+                </tr>
+                <tr>
+                    <td width="25%">接口描述</td>
+                    <td colspan="4">getWord</td>
+                </tr>
+                <tr>
+                    <td>URL</td>
+                    <td colspan="4">/api/word/toWord</td>
+                </tr>
+                <tr>
+                    <td>请求方式</td>
+                    <td colspan="4">get,head,post,put,delete,options,patch</td>
+                </tr>
+                <tr>
+                    <td>请求类型</td>
+                    <td colspan="4">application/json</td>
+                </tr>
+                <tr>
+                    <td>返回类型</td>
+                    <td colspan="4">*/*</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>参数名</td>
+                    <td>数据类型</td>
+                    <td>参数类型</td>
+                    <td>是否必填</td>
+                    <td>说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>url</td>
+                    <td>string</td>
+                    <td>query</td>
+                    
+                    <td>N</td>
+                    <td>url</td>
+                </tr>
+
+                <tr align="center">
+                    <td>download</td>
+                    <td>integer</td>
+                    <td>query</td>
+                    
+                    <td>N</td>
+                    <td>download</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>状态码</td>
+                    <td colspan="2">描述</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>200</td>
+                    <td colspan="2">OK</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>401</td>
+                    <td colspan="2">Unauthorized</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>403</td>
+                    <td colspan="2">Forbidden</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>404</td>
+                    <td colspan="2">Not Found</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>返回属性名</td>
+                    <td colspan="2">类型</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                
+
+                <tr class="bg">
+                    <td colspan="5">示例</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">请求参数</td>
+                    <td colspan="4">{&quot;download&quot;:0,&quot;url&quot;:&quot;string&quot;}</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">返回值</td>
+                    <td colspan="4"></td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+    <div style="margin-bottom:20px;">
+        <!--这个是类的说明-->
+        <h4 class="first_title">文章Controller</h4>
+        <div>
+
+            <!--这个是每个请求的说明，方便生成文档后进行整理-->
+            
+            <h5 class="second_title">1）新增和修改文章</h5>
+
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr class="bg">
+                    <td colspan="5">新增和修改文章</td>
+                </tr>
+                <tr>
+                    <td width="25%">接口描述</td>
+                    <td colspan="4">新增和修改文章</td>
+                </tr>
+                <tr>
+                    <td>URL</td>
+                    <td colspan="4">/api/article</td>
+                </tr>
+                <tr>
+                    <td>请求方式</td>
+                    <td colspan="4">post</td>
+                </tr>
+                <tr>
+                    <td>请求类型</td>
+                    <td colspan="4">application/json</td>
+                </tr>
+                <tr>
+                    <td>返回类型</td>
+                    <td colspan="4">*/*</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>参数名</td>
+                    <td>数据类型</td>
+                    <td>参数类型</td>
+                    <td>是否必填</td>
+                    <td>说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>article</td>
+                    <td>object</td>
+                    <td>文章内容表</td>
+                    <td>Y</td>
+                    
+                    <td>article</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>状态码</td>
+                    <td colspan="2">描述</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>200</td>
+                    <td colspan="2">OK</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>201</td>
+                    <td colspan="2">Created</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>401</td>
+                    <td colspan="2">Unauthorized</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>403</td>
+                    <td colspan="2">Forbidden</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>404</td>
+                    <td colspan="2">Not Found</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>返回属性名</td>
+                    <td colspan="2">类型</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>code</td>
+                    <td colspan="2">integer(int32)</td>
+                    <td colspan="2">状态码</td>
+                </tr>
+
+                <tr align="center">
+                    <td>data</td>
+                    <td colspan="2">object</td>
+                    <td colspan="2">返回数据</td>
+                </tr>
+
+                <tr align="center">
+                    <td>message</td>
+                    <td colspan="2">string</td>
+                    <td colspan="2">返回内容</td>
+                </tr>
+
+                <tr class="bg">
+                    <td colspan="5">示例</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">请求参数</td>
+                    <td colspan="4">{&quot;summary&quot;:&quot;string&quot;,&quot;comments&quot;:&quot;array&quot;,&quot;flatPatternmaking&quot;:&quot;string&quot;,&quot;pv&quot;:&quot;integer(int32)&quot;,&quot;customTag&quot;:&quot;string&quot;,&quot;publishDate&quot;:&quot;string&quot;,&quot;editTime&quot;:&quot;string&quot;,&quot;mdContent&quot;:&quot;string&quot;,&quot;title&quot;:&quot;string&quot;,&quot;htmlContent&quot;:&quot;string&quot;,&quot;labels&quot;:&quot;array&quot;,&quot;uid&quot;:&quot;integer(int64)&quot;,&quot;advertisements&quot;:&quot;array&quot;,&quot;commentsCount&quot;:&quot;integer(int32)&quot;,&quot;id&quot;:&quot;integer(int64)&quot;,&quot;state&quot;:&quot;integer(int32)&quot;,&quot;category&quot;:&quot;object&quot;,&quot;user&quot;:&quot;object&quot;,&quot;cid&quot;:&quot;integer(int64)&quot;}</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">返回值</td>
+                    <td colspan="4">{&quot;code&quot;:&quot;integer(int32)&quot;,&quot;data&quot;:&quot;object&quot;,&quot;message&quot;:&quot;string&quot;}</td>
+                </tr>
+
+            </table>
+        </div>
+        <div>
+
+            <!--这个是每个请求的说明，方便生成文档后进行整理-->
+            <br>
+            <h5 class="second_title">2）根据文章ID获取文章</h5>
+
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr class="bg">
+                    <td colspan="5">根据文章ID获取文章</td>
+                </tr>
+                <tr>
+                    <td width="25%">接口描述</td>
+                    <td colspan="4">根据文章ID获取文章</td>
+                </tr>
+                <tr>
+                    <td>URL</td>
+                    <td colspan="4">/api/article/{aid}</td>
+                </tr>
+                <tr>
+                    <td>请求方式</td>
+                    <td colspan="4">get</td>
+                </tr>
+                <tr>
+                    <td>请求类型</td>
+                    <td colspan="4">application/json</td>
+                </tr>
+                <tr>
+                    <td>返回类型</td>
+                    <td colspan="4">*/*</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>参数名</td>
+                    <td>数据类型</td>
+                    <td>参数类型</td>
+                    <td>是否必填</td>
+                    <td>说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>aid</td>
+                    <td>integer</td>
+                    <td>path</td>
+                    <td>Y</td>
+                    
+                    <td>文章ID</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>状态码</td>
+                    <td colspan="2">描述</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>200</td>
+                    <td colspan="2">OK</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>401</td>
+                    <td colspan="2">Unauthorized</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>403</td>
+                    <td colspan="2">Forbidden</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>404</td>
+                    <td colspan="2">Not Found</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>返回属性名</td>
+                    <td colspan="2">类型</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>code</td>
+                    <td colspan="2">integer(int32)</td>
+                    <td colspan="2">状态码</td>
+                </tr>
+
+                <tr align="center">
+                    <td>data</td>
+                    <td colspan="2">object</td>
+                    <td colspan="2">返回数据</td>
+                </tr>
+
+                <tr align="center">
+                    <td>message</td>
+                    <td colspan="2">string</td>
+                    <td colspan="2">返回内容</td>
+                </tr>
+
+                <tr class="bg">
+                    <td colspan="5">示例</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">请求参数</td>
+                    <td colspan="4">{&quot;aid&quot;:0}</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">返回值</td>
+                    <td colspan="4">{&quot;code&quot;:&quot;integer(int32)&quot;,&quot;data&quot;:&quot;object&quot;,&quot;message&quot;:&quot;string&quot;}</td>
+                </tr>
+
+            </table>
+        </div>
+        <div>
+
+            <!--这个是每个请求的说明，方便生成文档后进行整理-->
+            <br>
+            <h5 class="second_title">3）更新文章状态</h5>
+
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr class="bg">
+                    <td colspan="5">更新文章状态</td>
+                </tr>
+                <tr>
+                    <td width="25%">接口描述</td>
+                    <td colspan="4">更新文章状态</td>
+                </tr>
+                <tr>
+                    <td>URL</td>
+                    <td colspan="4">/api/article/{aid}/{state}</td>
+                </tr>
+                <tr>
+                    <td>请求方式</td>
+                    <td colspan="4">put</td>
+                </tr>
+                <tr>
+                    <td>请求类型</td>
+                    <td colspan="4">application/json</td>
+                </tr>
+                <tr>
+                    <td>返回类型</td>
+                    <td colspan="4">*/*</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>参数名</td>
+                    <td>数据类型</td>
+                    <td>参数类型</td>
+                    <td>是否必填</td>
+                    <td>说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>aid</td>
+                    <td>integer</td>
+                    <td>path</td>
+                    <td>Y</td>
+                    
+                    <td>文章ID</td>
+                </tr>
+
+                <tr align="center">
+                    <td>state</td>
+                    <td>string</td>
+                    <td>path</td>
+                    <td>Y</td>
+                    
+                    <td>文章状态</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>状态码</td>
+                    <td colspan="2">描述</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>200</td>
+                    <td colspan="2">OK</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>201</td>
+                    <td colspan="2">Created</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>401</td>
+                    <td colspan="2">Unauthorized</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>403</td>
+                    <td colspan="2">Forbidden</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>404</td>
+                    <td colspan="2">Not Found</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>返回属性名</td>
+                    <td colspan="2">类型</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>code</td>
+                    <td colspan="2">integer(int32)</td>
+                    <td colspan="2">状态码</td>
+                </tr>
+
+                <tr align="center">
+                    <td>data</td>
+                    <td colspan="2">object</td>
+                    <td colspan="2">返回数据</td>
+                </tr>
+
+                <tr align="center">
+                    <td>message</td>
+                    <td colspan="2">string</td>
+                    <td colspan="2">返回内容</td>
+                </tr>
+
+                <tr class="bg">
+                    <td colspan="5">示例</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">请求参数</td>
+                    <td colspan="4">{&quot;state&quot;:&quot;string&quot;,&quot;aid&quot;:0}</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">返回值</td>
+                    <td colspan="4">{&quot;code&quot;:&quot;integer(int32)&quot;,&quot;data&quot;:&quot;object&quot;,&quot;message&quot;:&quot;string&quot;}</td>
+                </tr>
+
+            </table>
+        </div>
+        <div>
+
+            <!--这个是每个请求的说明，方便生成文档后进行整理-->
+            <br>
+            <h5 class="second_title">4）根据分页条件获取文章</h5>
+
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr class="bg">
+                    <td colspan="5">根据分页条件获取文章</td>
+                </tr>
+                <tr>
+                    <td width="25%">接口描述</td>
+                    <td colspan="4">根据分页条件获取文章</td>
+                </tr>
+                <tr>
+                    <td>URL</td>
+                    <td colspan="4">/api/articles</td>
+                </tr>
+                <tr>
+                    <td>请求方式</td>
+                    <td colspan="4">get</td>
+                </tr>
+                <tr>
+                    <td>请求类型</td>
+                    <td colspan="4">application/json</td>
+                </tr>
+                <tr>
+                    <td>返回类型</td>
+                    <td colspan="4">*/*</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>参数名</td>
+                    <td>数据类型</td>
+                    <td>参数类型</td>
+                    <td>是否必填</td>
+                    <td>说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>page</td>
+                    <td>integer</td>
+                    <td>query</td>
+                    
+                    <td>N</td>
+                    <td>page</td>
+                </tr>
+
+                <tr align="center">
+                    <td>per_page</td>
+                    <td>integer</td>
+                    <td>query</td>
+                    
+                    <td>N</td>
+                    <td>per_page</td>
+                </tr>
+
+                <tr align="center">
+                    <td>sortby</td>
+                    <td>string</td>
+                    <td>query</td>
+                    <td>Y</td>
+                    
+                    <td>sortby</td>
+                </tr>
+
+                <tr align="center">
+                    <td>order</td>
+                    <td>string</td>
+                    <td>query</td>
+                    
+                    <td>N</td>
+                    <td>order</td>
+                </tr>
+
+                <tr align="center">
+                    <td>article_keyWords</td>
+                    <td>string</td>
+                    <td>query</td>
+                    <td>Y</td>
+                    
+                    <td>article_keyWords</td>
+                </tr>
+
+                <tr align="center">
+                    <td>article_year</td>
+                    <td>integer</td>
+                    <td>query</td>
+                    <td>Y</td>
+                    
+                    <td>article_year</td>
+                </tr>
+
+                <tr align="center">
+                    <td>article_month</td>
+                    <td>integer</td>
+                    <td>query</td>
+                    <td>Y</td>
+                    
+                    <td>article_month</td>
+                </tr>
+
+                <tr align="center">
+                    <td>article_day</td>
+                    <td>integer</td>
+                    <td>query</td>
+                    <td>Y</td>
+                    
+                    <td>article_day</td>
+                </tr>
+
+                <tr align="center">
+                    <td>article_lid</td>
+                    <td>integer</td>
+                    <td>query</td>
+                    <td>Y</td>
+                    
+                    <td>article_lid</td>
+                </tr>
+
+                <tr align="center">
+                    <td>article_cid</td>
+                    <td>integer</td>
+                    <td>query</td>
+                    <td>Y</td>
+                    
+                    <td>article_cid</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>状态码</td>
+                    <td colspan="2">描述</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>200</td>
+                    <td colspan="2">OK</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>401</td>
+                    <td colspan="2">Unauthorized</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>403</td>
+                    <td colspan="2">Forbidden</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>404</td>
+                    <td colspan="2">Not Found</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>返回属性名</td>
+                    <td colspan="2">类型</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>code</td>
+                    <td colspan="2">integer(int32)</td>
+                    <td colspan="2">状态码</td>
+                </tr>
+
+                <tr align="center">
+                    <td>data</td>
+                    <td colspan="2">object</td>
+                    <td colspan="2">返回数据</td>
+                </tr>
+
+                <tr align="center">
+                    <td>message</td>
+                    <td colspan="2">string</td>
+                    <td colspan="2">返回内容</td>
+                </tr>
+
+                <tr class="bg">
+                    <td colspan="5">示例</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">请求参数</td>
+                    <td colspan="4">{&quot;per_page&quot;:0,&quot;article_keyWords&quot;:&quot;string&quot;,&quot;article_year&quot;:0,&quot;article_lid&quot;:0,&quot;article_day&quot;:0,&quot;sortby&quot;:&quot;string&quot;,&quot;article_month&quot;:0,&quot;page&quot;:0,&quot;order&quot;:&quot;string&quot;,&quot;article_cid&quot;:0}</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">返回值</td>
+                    <td colspan="4">{&quot;code&quot;:&quot;integer(int32)&quot;,&quot;data&quot;:&quot;object&quot;,&quot;message&quot;:&quot;string&quot;}</td>
+                </tr>
+
+            </table>
+        </div>
+        <div>
+
+            <!--这个是每个请求的说明，方便生成文档后进行整理-->
+            <br>
+            <h5 class="second_title">5）根据用户ID获取文章</h5>
+
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr class="bg">
+                    <td colspan="5">根据用户ID获取文章</td>
+                </tr>
+                <tr>
+                    <td width="25%">接口描述</td>
+                    <td colspan="4">根据用户ID获取文章</td>
+                </tr>
+                <tr>
+                    <td>URL</td>
+                    <td colspan="4">/api/user/articles/{uid}</td>
+                </tr>
+                <tr>
+                    <td>请求方式</td>
+                    <td colspan="4">get</td>
+                </tr>
+                <tr>
+                    <td>请求类型</td>
+                    <td colspan="4">application/json</td>
+                </tr>
+                <tr>
+                    <td>返回类型</td>
+                    <td colspan="4">*/*</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>参数名</td>
+                    <td>数据类型</td>
+                    <td>参数类型</td>
+                    <td>是否必填</td>
+                    <td>说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>page</td>
+                    <td>integer</td>
+                    <td>query</td>
+                    
+                    <td>N</td>
+                    <td>page</td>
+                </tr>
+
+                <tr align="center">
+                    <td>per_page</td>
+                    <td>integer</td>
+                    <td>query</td>
+                    
+                    <td>N</td>
+                    <td>per_page</td>
+                </tr>
+
+                <tr align="center">
+                    <td>sortby</td>
+                    <td>string</td>
+                    <td>query</td>
+                    
+                    <td>N</td>
+                    <td>sortby</td>
+                </tr>
+
+                <tr align="center">
+                    <td>order</td>
+                    <td>string</td>
+                    <td>query</td>
+                    
+                    <td>N</td>
+                    <td>order</td>
+                </tr>
+
+                <tr align="center">
+                    <td>uid</td>
+                    <td>integer</td>
+                    <td>path</td>
+                    <td>Y</td>
+                    
+                    <td>用户ID</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>状态码</td>
+                    <td colspan="2">描述</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>200</td>
+                    <td colspan="2">OK</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>401</td>
+                    <td colspan="2">Unauthorized</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>403</td>
+                    <td colspan="2">Forbidden</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>404</td>
+                    <td colspan="2">Not Found</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>返回属性名</td>
+                    <td colspan="2">类型</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>code</td>
+                    <td colspan="2">integer(int32)</td>
+                    <td colspan="2">状态码</td>
+                </tr>
+
+                <tr align="center">
+                    <td>data</td>
+                    <td colspan="2">object</td>
+                    <td colspan="2">返回数据</td>
+                </tr>
+
+                <tr align="center">
+                    <td>message</td>
+                    <td colspan="2">string</td>
+                    <td colspan="2">返回内容</td>
+                </tr>
+
+                <tr class="bg">
+                    <td colspan="5">示例</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">请求参数</td>
+                    <td colspan="4">{&quot;per_page&quot;:0,&quot;uid&quot;:0,&quot;sortby&quot;:&quot;string&quot;,&quot;page&quot;:0,&quot;order&quot;:&quot;string&quot;}</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">返回值</td>
+                    <td colspan="4">{&quot;code&quot;:&quot;integer(int32)&quot;,&quot;data&quot;:&quot;object&quot;,&quot;message&quot;:&quot;string&quot;}</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+    <div style="margin-bottom:20px;">
+        <!--这个是类的说明-->
+        <h4 class="first_title">点击记录Controller</h4>
+        <div>
+
+            <!--这个是每个请求的说明，方便生成文档后进行整理-->
+            
+            <h5 class="second_title">1）add</h5>
+
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr class="bg">
+                    <td colspan="5">add</td>
+                </tr>
+                <tr>
+                    <td width="25%">接口描述</td>
+                    <td colspan="4">add</td>
+                </tr>
+                <tr>
+                    <td>URL</td>
+                    <td colspan="4">/api/click/history/click</td>
+                </tr>
+                <tr>
+                    <td>请求方式</td>
+                    <td colspan="4">post</td>
+                </tr>
+                <tr>
+                    <td>请求类型</td>
+                    <td colspan="4">application/json</td>
+                </tr>
+                <tr>
+                    <td>返回类型</td>
+                    <td colspan="4">*/*</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>参数名</td>
+                    <td>数据类型</td>
+                    <td>参数类型</td>
+                    <td>是否必填</td>
+                    <td>说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>vo</td>
+                    <td>object</td>
+                    <td>点击历史</td>
+                    <td>Y</td>
+                    
+                    <td>vo</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>状态码</td>
+                    <td colspan="2">描述</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>200</td>
+                    <td colspan="2">OK</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>201</td>
+                    <td colspan="2">Created</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>401</td>
+                    <td colspan="2">Unauthorized</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>403</td>
+                    <td colspan="2">Forbidden</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>404</td>
+                    <td colspan="2">Not Found</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>返回属性名</td>
+                    <td colspan="2">类型</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>code</td>
+                    <td colspan="2">integer(int32)</td>
+                    <td colspan="2">状态码</td>
+                </tr>
+
+                <tr align="center">
+                    <td>data</td>
+                    <td colspan="2">object</td>
+                    <td colspan="2">返回数据</td>
+                </tr>
+
+                <tr align="center">
+                    <td>message</td>
+                    <td colspan="2">string</td>
+                    <td colspan="2">返回内容</td>
+                </tr>
+
+                <tr class="bg">
+                    <td colspan="5">示例</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">请求参数</td>
+                    <td colspan="4">{&quot;clickTime&quot;:&quot;string(date-time)&quot;,&quot;adid&quot;:&quot;integer(int64)&quot;,&quot;id&quot;:&quot;integer(int64)&quot;,&quot;aid&quot;:&quot;integer(int64)&quot;,&quot;ip&quot;:&quot;string&quot;}</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">返回值</td>
+                    <td colspan="4">{&quot;code&quot;:&quot;integer(int32)&quot;,&quot;data&quot;:&quot;object&quot;,&quot;message&quot;:&quot;string&quot;}</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+    <div style="margin-bottom:20px;">
+        <!--这个是类的说明-->
+        <h4 class="first_title">用户Contrroller</h4>
+        <div>
+
+            <!--这个是每个请求的说明，方便生成文档后进行整理-->
+            
+            <h5 class="second_title">1）发送邮件</h5>
+
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr class="bg">
+                    <td colspan="5">发送邮件</td>
+                </tr>
+                <tr>
+                    <td width="25%">接口描述</td>
+                    <td colspan="4">发送邮件</td>
+                </tr>
+                <tr>
+                    <td>URL</td>
+                    <td colspan="4">/api/user/email/{email}</td>
+                </tr>
+                <tr>
+                    <td>请求方式</td>
+                    <td colspan="4">put</td>
+                </tr>
+                <tr>
+                    <td>请求类型</td>
+                    <td colspan="4">application/json</td>
+                </tr>
+                <tr>
+                    <td>返回类型</td>
+                    <td colspan="4">*/*</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>参数名</td>
+                    <td>数据类型</td>
+                    <td>参数类型</td>
+                    <td>是否必填</td>
+                    <td>说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>email</td>
+                    <td>string</td>
+                    <td>path</td>
+                    <td>Y</td>
+                    
+                    <td>email</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>状态码</td>
+                    <td colspan="2">描述</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>200</td>
+                    <td colspan="2">OK</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>201</td>
+                    <td colspan="2">Created</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>401</td>
+                    <td colspan="2">Unauthorized</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>403</td>
+                    <td colspan="2">Forbidden</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>404</td>
+                    <td colspan="2">Not Found</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>返回属性名</td>
+                    <td colspan="2">类型</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>code</td>
+                    <td colspan="2">integer(int32)</td>
+                    <td colspan="2">状态码</td>
+                </tr>
+
+                <tr align="center">
+                    <td>data</td>
+                    <td colspan="2">object</td>
+                    <td colspan="2">返回数据</td>
+                </tr>
+
+                <tr align="center">
+                    <td>message</td>
+                    <td colspan="2">string</td>
+                    <td colspan="2">返回内容</td>
+                </tr>
+
+                <tr class="bg">
+                    <td colspan="5">示例</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">请求参数</td>
+                    <td colspan="4">{&quot;email&quot;:&quot;string&quot;}</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">返回值</td>
+                    <td colspan="4">{&quot;code&quot;:&quot;integer(int32)&quot;,&quot;data&quot;:&quot;object&quot;,&quot;message&quot;:&quot;string&quot;}</td>
+                </tr>
+
+            </table>
+        </div>
+        <div>
+
+            <!--这个是每个请求的说明，方便生成文档后进行整理-->
+            <br>
+            <h5 class="second_title">2）获取用户资料</h5>
+
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr class="bg">
+                    <td colspan="5">获取用户资料</td>
+                </tr>
+                <tr>
+                    <td width="25%">接口描述</td>
+                    <td colspan="4">获取用户资料</td>
+                </tr>
+                <tr>
+                    <td>URL</td>
+                    <td colspan="4">/api/user/user</td>
+                </tr>
+                <tr>
+                    <td>请求方式</td>
+                    <td colspan="4">get,post,put</td>
+                </tr>
+                <tr>
+                    <td>请求类型</td>
+                    <td colspan="4">application/json</td>
+                </tr>
+                <tr>
+                    <td>返回类型</td>
+                    <td colspan="4">*/*</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>参数名</td>
+                    <td>数据类型</td>
+                    <td>参数类型</td>
+                    <td>是否必填</td>
+                    <td>说明</td>
+                </tr>
+
+                
+
+                <tr class="bg" align="center">
+                    <td>状态码</td>
+                    <td colspan="2">描述</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>200</td>
+                    <td colspan="2">OK</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>401</td>
+                    <td colspan="2">Unauthorized</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>403</td>
+                    <td colspan="2">Forbidden</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>404</td>
+                    <td colspan="2">Not Found</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>返回属性名</td>
+                    <td colspan="2">类型</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>code</td>
+                    <td colspan="2">integer(int32)</td>
+                    <td colspan="2">状态码</td>
+                </tr>
+
+                <tr align="center">
+                    <td>data</td>
+                    <td colspan="2">object</td>
+                    <td colspan="2">返回数据</td>
+                </tr>
+
+                <tr align="center">
+                    <td>message</td>
+                    <td colspan="2">string</td>
+                    <td colspan="2">返回内容</td>
+                </tr>
+
+                <tr class="bg">
+                    <td colspan="5">示例</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">请求参数</td>
+                    <td colspan="4">{}</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">返回值</td>
+                    <td colspan="4">{&quot;code&quot;:&quot;integer(int32)&quot;,&quot;data&quot;:&quot;object&quot;,&quot;message&quot;:&quot;string&quot;}</td>
+                </tr>
+
+            </table>
+        </div>
+        <div>
+
+            <!--这个是每个请求的说明，方便生成文档后进行整理-->
+            <br>
+            <h5 class="second_title">3）重置密码</h5>
+
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr class="bg">
+                    <td colspan="5">重置密码</td>
+                </tr>
+                <tr>
+                    <td width="25%">接口描述</td>
+                    <td colspan="4">重置密码</td>
+                </tr>
+                <tr>
+                    <td>URL</td>
+                    <td colspan="4">/api/user/user/password</td>
+                </tr>
+                <tr>
+                    <td>请求方式</td>
+                    <td colspan="4">post</td>
+                </tr>
+                <tr>
+                    <td>请求类型</td>
+                    <td colspan="4">application/json</td>
+                </tr>
+                <tr>
+                    <td>返回类型</td>
+                    <td colspan="4">*/*</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>参数名</td>
+                    <td>数据类型</td>
+                    <td>参数类型</td>
+                    <td>是否必填</td>
+                    <td>说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>request</td>
+                    <td>object</td>
+                    <td>ResetPasswordsRequest</td>
+                    <td>Y</td>
+                    
+                    <td>request</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>状态码</td>
+                    <td colspan="2">描述</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>200</td>
+                    <td colspan="2">OK</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>201</td>
+                    <td colspan="2">Created</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>401</td>
+                    <td colspan="2">Unauthorized</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>403</td>
+                    <td colspan="2">Forbidden</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>404</td>
+                    <td colspan="2">Not Found</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>返回属性名</td>
+                    <td colspan="2">类型</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>code</td>
+                    <td colspan="2">integer(int32)</td>
+                    <td colspan="2">状态码</td>
+                </tr>
+
+                <tr align="center">
+                    <td>data</td>
+                    <td colspan="2">object</td>
+                    <td colspan="2">返回数据</td>
+                </tr>
+
+                <tr align="center">
+                    <td>message</td>
+                    <td colspan="2">string</td>
+                    <td colspan="2">返回内容</td>
+                </tr>
+
+                <tr class="bg">
+                    <td colspan="5">示例</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">请求参数</td>
+                    <td colspan="4">{&quot;code&quot;:&quot;string&quot;,&quot;passwords&quot;:&quot;string&quot;,&quot;email&quot;:&quot;string&quot;}</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">返回值</td>
+                    <td colspan="4">{&quot;code&quot;:&quot;integer(int32)&quot;,&quot;data&quot;:&quot;object&quot;,&quot;message&quot;:&quot;string&quot;}</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+    <div style="margin-bottom:20px;">
+        <!--这个是类的说明-->
+        <h4 class="first_title">监控Controller</h4>
+        <div>
+
+            <!--这个是每个请求的说明，方便生成文档后进行整理-->
+            
+            <h5 class="second_title">1）在线用户列表</h5>
+
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr class="bg">
+                    <td colspan="5">在线用户列表</td>
+                </tr>
+                <tr>
+                    <td width="25%">接口描述</td>
+                    <td colspan="4">在线用户列表</td>
+                </tr>
+                <tr>
+                    <td>URL</td>
+                    <td colspan="4">/api/monitor/online/user</td>
+                </tr>
+                <tr>
+                    <td>请求方式</td>
+                    <td colspan="4">get</td>
+                </tr>
+                <tr>
+                    <td>请求类型</td>
+                    <td colspan="4">application/json</td>
+                </tr>
+                <tr>
+                    <td>返回类型</td>
+                    <td colspan="4">*/*</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>参数名</td>
+                    <td>数据类型</td>
+                    <td>参数类型</td>
+                    <td>是否必填</td>
+                    <td>说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>pageCondition</td>
+                    <td>object</td>
+                    <td>分页请求参数</td>
+                    <td>Y</td>
+                    
+                    <td>pageCondition</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>状态码</td>
+                    <td colspan="2">描述</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>200</td>
+                    <td colspan="2">OK</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>401</td>
+                    <td colspan="2">Unauthorized</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>403</td>
+                    <td colspan="2">Forbidden</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>404</td>
+                    <td colspan="2">Not Found</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>返回属性名</td>
+                    <td colspan="2">类型</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>code</td>
+                    <td colspan="2">integer(int32)</td>
+                    <td colspan="2">状态码</td>
+                </tr>
+
+                <tr align="center">
+                    <td>data</td>
+                    <td colspan="2">object</td>
+                    <td colspan="2">返回数据</td>
+                </tr>
+
+                <tr align="center">
+                    <td>message</td>
+                    <td colspan="2">string</td>
+                    <td colspan="2">返回内容</td>
+                </tr>
+
+                <tr class="bg">
+                    <td colspan="5">示例</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">请求参数</td>
+                    <td colspan="4">{&quot;keyWords&quot;:&quot;string&quot;,&quot;month&quot;:&quot;integer(int32)&quot;,&quot;param&quot;:&quot;object&quot;,&quot;year&quot;:&quot;integer(int32)&quot;,&quot;lid&quot;:&quot;integer(int64)&quot;,&quot;pageSize&quot;:&quot;integer(int32)&quot;,&quot;isASC&quot;:&quot;boolean&quot;,&quot;sort&quot;:&quot;string&quot;,&quot;currentPage&quot;:&quot;integer(int32)&quot;,&quot;day&quot;:&quot;integer(int32)&quot;,&quot;cid&quot;:&quot;integer(int64)&quot;}</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">返回值</td>
+                    <td colspan="4">{&quot;code&quot;:&quot;integer(int32)&quot;,&quot;data&quot;:&quot;object&quot;,&quot;message&quot;:&quot;string&quot;}</td>
+                </tr>
+
+            </table>
+        </div>
+        <div>
+
+            <!--这个是每个请求的说明，方便生成文档后进行整理-->
+            <br>
+            <h5 class="second_title">2）批量踢出在线用户</h5>
+
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr class="bg">
+                    <td colspan="5">批量踢出在线用户</td>
+                </tr>
+                <tr>
+                    <td width="25%">接口描述</td>
+                    <td colspan="4">批量踢出在线用户</td>
+                </tr>
+                <tr>
+                    <td>URL</td>
+                    <td colspan="4">/api/monitor/online/user/kickout</td>
+                </tr>
+                <tr>
+                    <td>请求方式</td>
+                    <td colspan="4">delete</td>
+                </tr>
+                <tr>
+                    <td>请求类型</td>
+                    <td colspan="4">application/json</td>
+                </tr>
+                <tr>
+                    <td>返回类型</td>
+                    <td colspan="4">*/*</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>参数名</td>
+                    <td>数据类型</td>
+                    <td>参数类型</td>
+                    <td>是否必填</td>
+                    <td>说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>names</td>
+                    <td>object</td>
+                    <td>{}</td>
+                    <td>Y</td>
+                    
+                    <td>names</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>状态码</td>
+                    <td colspan="2">描述</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>200</td>
+                    <td colspan="2">OK</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>204</td>
+                    <td colspan="2">No Content</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>401</td>
+                    <td colspan="2">Unauthorized</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>403</td>
+                    <td colspan="2">Forbidden</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>返回属性名</td>
+                    <td colspan="2">类型</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>code</td>
+                    <td colspan="2">integer(int32)</td>
+                    <td colspan="2">状态码</td>
+                </tr>
+
+                <tr align="center">
+                    <td>data</td>
+                    <td colspan="2">object</td>
+                    <td colspan="2">返回数据</td>
+                </tr>
+
+                <tr align="center">
+                    <td>message</td>
+                    <td colspan="2">string</td>
+                    <td colspan="2">返回内容</td>
+                </tr>
+
+                <tr class="bg">
+                    <td colspan="5">示例</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">请求参数</td>
+                    <td colspan="4">{&quot;names&quot;:null}</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">返回值</td>
+                    <td colspan="4">{&quot;code&quot;:&quot;integer(int32)&quot;,&quot;data&quot;:&quot;object&quot;,&quot;message&quot;:&quot;string&quot;}</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+    <div style="margin-bottom:20px;">
+        <!--这个是类的说明-->
+        <h4 class="first_title">认证Controller</h4>
+        <div>
+
+            <!--这个是每个请求的说明，方便生成文档后进行整理-->
+            
+            <h5 class="second_title">1）用户登录</h5>
+
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr class="bg">
+                    <td colspan="5">用户登录</td>
+                </tr>
+                <tr>
+                    <td width="25%">接口描述</td>
+                    <td colspan="4">用户登录</td>
+                </tr>
+                <tr>
+                    <td>URL</td>
+                    <td colspan="4">/api/auth/login</td>
+                </tr>
+                <tr>
+                    <td>请求方式</td>
+                    <td colspan="4">post</td>
+                </tr>
+                <tr>
+                    <td>请求类型</td>
+                    <td colspan="4">application/json</td>
+                </tr>
+                <tr>
+                    <td>返回类型</td>
+                    <td colspan="4">*/*</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>参数名</td>
+                    <td>数据类型</td>
+                    <td>参数类型</td>
+                    <td>是否必填</td>
+                    <td>说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>loginRequest</td>
+                    <td>object</td>
+                    <td>登录请求体参数</td>
+                    <td>Y</td>
+                    
+                    <td>loginRequest</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>状态码</td>
+                    <td colspan="2">描述</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>200</td>
+                    <td colspan="2">OK</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>201</td>
+                    <td colspan="2">Created</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>401</td>
+                    <td colspan="2">Unauthorized</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>403</td>
+                    <td colspan="2">Forbidden</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>404</td>
+                    <td colspan="2">Not Found</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>返回属性名</td>
+                    <td colspan="2">类型</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>code</td>
+                    <td colspan="2">integer(int32)</td>
+                    <td colspan="2">状态码</td>
+                </tr>
+
+                <tr align="center">
+                    <td>data</td>
+                    <td colspan="2">object</td>
+                    <td colspan="2">返回数据</td>
+                </tr>
+
+                <tr align="center">
+                    <td>message</td>
+                    <td colspan="2">string</td>
+                    <td colspan="2">返回内容</td>
+                </tr>
+
+                <tr class="bg">
+                    <td colspan="5">示例</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">请求参数</td>
+                    <td colspan="4">{&quot;emailOrPhone&quot;:&quot;string&quot;,&quot;signOnPlatform&quot;:&quot;string&quot;,&quot;password&quot;:&quot;string&quot;,&quot;rememberMe&quot;:&quot;boolean&quot;}</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">返回值</td>
+                    <td colspan="4">{&quot;code&quot;:&quot;integer(int32)&quot;,&quot;data&quot;:&quot;object&quot;,&quot;message&quot;:&quot;string&quot;}</td>
+                </tr>
+
+            </table>
+        </div>
+        <div>
+
+            <!--这个是每个请求的说明，方便生成文档后进行整理-->
+            <br>
+            <h5 class="second_title">2）用户登出</h5>
+
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr class="bg">
+                    <td colspan="5">用户登出</td>
+                </tr>
+                <tr>
+                    <td width="25%">接口描述</td>
+                    <td colspan="4">用户登出</td>
+                </tr>
+                <tr>
+                    <td>URL</td>
+                    <td colspan="4">/api/auth/logout</td>
+                </tr>
+                <tr>
+                    <td>请求方式</td>
+                    <td colspan="4">post</td>
+                </tr>
+                <tr>
+                    <td>请求类型</td>
+                    <td colspan="4">application/json</td>
+                </tr>
+                <tr>
+                    <td>返回类型</td>
+                    <td colspan="4">*/*</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>参数名</td>
+                    <td>数据类型</td>
+                    <td>参数类型</td>
+                    <td>是否必填</td>
+                    <td>说明</td>
+                </tr>
+
+                
+
+                <tr class="bg" align="center">
+                    <td>状态码</td>
+                    <td colspan="2">描述</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>200</td>
+                    <td colspan="2">OK</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>201</td>
+                    <td colspan="2">Created</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>401</td>
+                    <td colspan="2">Unauthorized</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>403</td>
+                    <td colspan="2">Forbidden</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>404</td>
+                    <td colspan="2">Not Found</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>返回属性名</td>
+                    <td colspan="2">类型</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>code</td>
+                    <td colspan="2">integer(int32)</td>
+                    <td colspan="2">状态码</td>
+                </tr>
+
+                <tr align="center">
+                    <td>data</td>
+                    <td colspan="2">object</td>
+                    <td colspan="2">返回数据</td>
+                </tr>
+
+                <tr align="center">
+                    <td>message</td>
+                    <td colspan="2">string</td>
+                    <td colspan="2">返回内容</td>
+                </tr>
+
+                <tr class="bg">
+                    <td colspan="5">示例</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">请求参数</td>
+                    <td colspan="4">{}</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">返回值</td>
+                    <td colspan="4">{&quot;code&quot;:&quot;integer(int32)&quot;,&quot;data&quot;:&quot;object&quot;,&quot;message&quot;:&quot;string&quot;}</td>
+                </tr>
+
+            </table>
+        </div>
+        <div>
+
+            <!--这个是每个请求的说明，方便生成文档后进行整理-->
+            <br>
+            <h5 class="second_title">3）注册接口</h5>
+
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr class="bg">
+                    <td colspan="5">注册接口</td>
+                </tr>
+                <tr>
+                    <td width="25%">接口描述</td>
+                    <td colspan="4">注册接口</td>
+                </tr>
+                <tr>
+                    <td>URL</td>
+                    <td colspan="4">/api/auth/user</td>
+                </tr>
+                <tr>
+                    <td>请求方式</td>
+                    <td colspan="4">post</td>
+                </tr>
+                <tr>
+                    <td>请求类型</td>
+                    <td colspan="4">application/json</td>
+                </tr>
+                <tr>
+                    <td>返回类型</td>
+                    <td colspan="4">*/*</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>参数名</td>
+                    <td>数据类型</td>
+                    <td>参数类型</td>
+                    <td>是否必填</td>
+                    <td>说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>user</td>
+                    <td>object</td>
+                    <td>用户实体</td>
+                    <td>Y</td>
+                    
+                    <td>user</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>状态码</td>
+                    <td colspan="2">描述</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>200</td>
+                    <td colspan="2">OK</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>201</td>
+                    <td colspan="2">Created</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>401</td>
+                    <td colspan="2">Unauthorized</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>403</td>
+                    <td colspan="2">Forbidden</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>404</td>
+                    <td colspan="2">Not Found</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>返回属性名</td>
+                    <td colspan="2">类型</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>code</td>
+                    <td colspan="2">integer(int32)</td>
+                    <td colspan="2">状态码</td>
+                </tr>
+
+                <tr align="center">
+                    <td>data</td>
+                    <td colspan="2">object</td>
+                    <td colspan="2">返回数据</td>
+                </tr>
+
+                <tr align="center">
+                    <td>message</td>
+                    <td colspan="2">string</td>
+                    <td colspan="2">返回内容</td>
+                </tr>
+
+                <tr class="bg">
+                    <td colspan="5">示例</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">请求参数</td>
+                    <td colspan="4">{&quot;avatarUrl&quot;:&quot;string&quot;,&quot;newPwd&quot;:&quot;string&quot;,&quot;nickName&quot;:&quot;string&quot;,&quot;sex&quot;:&quot;integer(int32)&quot;,&quot;attentionCount&quot;:&quot;integer(int64)&quot;,&quot;type&quot;:&quot;string&quot;,&quot;fans&quot;:&quot;integer(int64)&quot;,&quot;presentation&quot;:&quot;string&quot;,&quot;password&quot;:&quot;string&quot;,&quot;cashAccount&quot;:&quot;string&quot;,&quot;createTime&quot;:&quot;string&quot;,&quot;phone&quot;:&quot;string&quot;,&quot;id&quot;:&quot;integer(int64)&quot;,&quot;oldPwd&quot;:&quot;string&quot;,&quot;email&quot;:&quot;string&quot;,&quot;status&quot;:&quot;integer(int32)&quot;}</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">返回值</td>
+                    <td colspan="4">{&quot;code&quot;:&quot;integer(int32)&quot;,&quot;data&quot;:&quot;object&quot;,&quot;message&quot;:&quot;string&quot;}</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+    <div style="margin-bottom:20px;">
+        <!--这个是类的说明-->
+        <h4 class="first_title">资源Controller</h4>
+        <div>
+
+            <!--这个是每个请求的说明，方便生成文档后进行整理-->
+            
+            <h5 class="second_title">1）资源上传</h5>
+
+            <table border="1" cellspacing="0" cellpadding="0" width="100%">
+                <tr class="bg">
+                    <td colspan="5">资源上传</td>
+                </tr>
+                <tr>
+                    <td width="25%">接口描述</td>
+                    <td colspan="4">资源上传</td>
+                </tr>
+                <tr>
+                    <td>URL</td>
+                    <td colspan="4">/api/resource/upload</td>
+                </tr>
+                <tr>
+                    <td>请求方式</td>
+                    <td colspan="4">post</td>
+                </tr>
+                <tr>
+                    <td>请求类型</td>
+                    <td colspan="4">application/json</td>
+                </tr>
+                <tr>
+                    <td>返回类型</td>
+                    <td colspan="4">*/*</td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>参数名</td>
+                    <td>数据类型</td>
+                    <td>参数类型</td>
+                    <td>是否必填</td>
+                    <td>说明</td>
+                </tr>
+
+                
+
+                <tr class="bg" align="center">
+                    <td>状态码</td>
+                    <td colspan="2">描述</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>200</td>
+                    <td colspan="2">OK</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>201</td>
+                    <td colspan="2">Created</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>401</td>
+                    <td colspan="2">Unauthorized</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>403</td>
+                    <td colspan="2">Forbidden</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr align="center">
+                    <td>404</td>
+                    <td colspan="2">Not Found</td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <tr class="bg" align="center">
+                    <td>返回属性名</td>
+                    <td colspan="2">类型</td>
+                    <td colspan="2">说明</td>
+                </tr>
+
+                <tr align="center">
+                    <td>code</td>
+                    <td colspan="2">integer(int32)</td>
+                    <td colspan="2">状态码</td>
+                </tr>
+
+                <tr align="center">
+                    <td>data</td>
+                    <td colspan="2">object</td>
+                    <td colspan="2">返回数据</td>
+                </tr>
+
+                <tr align="center">
+                    <td>message</td>
+                    <td colspan="2">string</td>
+                    <td colspan="2">返回内容</td>
+                </tr>
+
+                <tr class="bg">
+                    <td colspan="5">示例</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">请求参数</td>
+                    <td colspan="4">{}</td>
+                </tr>
+                <tr class="specialHeight">
+                    <td class="bg">返回值</td>
+                    <td colspan="4">{&quot;code&quot;:&quot;integer(int32)&quot;,&quot;data&quot;:&quot;object&quot;,&quot;message&quot;:&quot;string&quot;}</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
