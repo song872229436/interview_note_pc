@@ -28,9 +28,10 @@
       });
     },
     methods: {
-      getUEContent() { // 获取内容方法
-        return this.editor.getContent()
-      }
+		// 获取内容方法
+		getUEContent() { 
+			return this.editor.getContent()
+		}
     },
     destroyed() {
       this.editor.destroy()

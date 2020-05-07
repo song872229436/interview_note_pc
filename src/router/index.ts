@@ -66,6 +66,34 @@ const routes = [
   	path: '/release',
   	name: 'release',
   	component: () => import(/* webpackChunkName: "release" */ '@/views/release/index.vue')
+  },
+  {
+  	path: '/personCenter',
+  	name: 'personCenter',
+	redirect: '/personCenter/personInfo',
+  	component: () => import(/* webpackChunkName: "personCenter" */ '@/views/personCenter/index.vue'),
+	children:[
+		{
+			path: 'personInfo',
+			name: 'personInfo',
+			component: () => import(/* webpackChunkName: "personInfo" */ '@/views/personCenter/personInfo/index.vue'),
+		},
+		{
+			path: 'adRevenue',
+			name: 'adRevenue',
+			component: () => import(/* webpackChunkName: "adRevenue" */ '@/views/personCenter/adRevenue/index.vue'),
+		},
+		{
+			path: 'adManage',
+			name: 'adManage',
+			component: () => import(/* webpackChunkName: "adManage" */ '@/views/personCenter/adManage/index.vue'),
+		},
+		{
+			path: 'score',
+			name: 'score',
+			component: () => import(/* webpackChunkName: "score" */ '@/views/personCenter/score/index.vue'),
+		}
+	]
   }
 ]
 
