@@ -13,24 +13,31 @@ const routes = [
   {
     path: '/about',
     name: 'About',
+	meta:{
+		isLogin:true
+	},
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '@/views/About.vue')
+	
   },
   {
     path: '/signIn',
     name: 'signIn',
-    meta: {
-      hideHeader: true
-    },
+	meta:{
+		hideHeader: true,
+		isLogin:false
+	},
     component: () => import(/* webpackChunkName: "signIn" */ '@/views/signIn/index.vue')
+	
   },
   {
     path: '/signUp',
     name: 'signUp',
     meta: {
-      hideHeader: true
+      hideHeader: true,
+	  isLogin:false
     },
     component: () => import(/* webpackChunkName: "signUp" */ '@/views/signUp/index.vue')
   },
@@ -38,40 +45,59 @@ const routes = [
     path: '/forgePsw',
     name: 'forgePsw',
     meta: {
-      hideHeader: true
+      hideHeader: true,
+	  isLogin:false
     },
     component: () => import(/* webpackChunkName: "forgePsw" */ '@/views/forgePsw/index.vue')
   },
   {
     path: '/',
     name: 'home',
+	meta:{
+		isLogin:false
+	},
     component: () => import(/* webpackChunkName: "home" */ '@/views/home/index.vue')
   },
   {
     path: '/articleList',
     name: 'articleList',
-    component: () => import(/* webpackChunkName: "articleList" */ '@/views/articleList/index.vue')
+    component: () => import(/* webpackChunkName: "articleList" */ '@/views/articleList/index.vue'),
+	meta:{
+		// isLogin:true
+	}
   },
   {
     path: '/articleDetail',
     name: 'articleDetail',
-    component: () => import(/* webpackChunkName: "articleDetail" */ '@/views/articleDetail/index.vue')
+    component: () => import(/* webpackChunkName: "articleDetail" */ '@/views/articleDetail/index.vue'),
+	meta:{
+		// isLogin:true
+	}
   },
   {
 	path: '/articleManage',
 	name: 'articleManage',
-	component: () => import(/* webpackChunkName: "articleManage" */ '@/views/articleManage/index.vue')
+	component: () => import(/* webpackChunkName: "articleManage" */ '@/views/articleManage/index.vue'),
+	meta:{
+		// isLogin:true
+	}
   },
   {
   	path: '/release',
   	name: 'release',
-  	component: () => import(/* webpackChunkName: "release" */ '@/views/release/index.vue')
+  	component: () => import(/* webpackChunkName: "release" */ '@/views/release/index.vue'),
+	meta:{
+		// isLogin:true
+	}
   },
   {
   	path: '/personCenter',
   	name: 'personCenter',
 	redirect: '/personCenter/personInfo',
   	component: () => import(/* webpackChunkName: "personCenter" */ '@/views/personCenter/index.vue'),
+	meta:{
+		// isLogin:true
+	},
 	children:[
 		{
 			path: 'personInfo',

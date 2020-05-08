@@ -80,6 +80,13 @@ export default{
 		this.personInfophone = this.personInfo.phone
 		this.personInfoemail = this.personInfo.email
 		this.personInfoaccount = this.personInfo.account
+		this.$http.get('http://39.97.223.153:8080/api/user/user',{
+			
+		}).then((response) => {
+			console.log(response)
+		}).catch((error) => {
+			console.log(error)
+		})
 	},
 	methods:{
 		// 提交表单

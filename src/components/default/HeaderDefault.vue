@@ -93,12 +93,6 @@
     },
 	computed:{
 		isLogin(){
-			//通过sessionstorage获取vuex里isLogin的状态
-			if(sessionStorage.getItem("userName") && sessionStorage.getItem("userToken")){
-				this.$store.commit('userStatus',sessionStorage.getItem("useName"))
-			}else{
-				this.$store.commit('userStatus',null)
-			}
 			return this.$store.getters.isLogin
 		}
 	},

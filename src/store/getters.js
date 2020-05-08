@@ -1,6 +1,6 @@
-const currentUser = state => state.currentUser
+// const currentUser = state => state.currentUser
 const isLogin = state => state.isLogin
 export default{
-	currentUser,
+	// currentUser,
 	isLogin
 }
