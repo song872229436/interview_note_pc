@@ -21,10 +21,12 @@ export default{
 		signOut(){
 			this.$http.post('http://39.97.223.153:8080/api/auth/logout').then((response) => {
 				console.log(response)
+				this.$router.push({path:'/'})
 				localStorage.removeItem("Flag")
 				localStorage.removeItem("userName")
 				localStorage.removeItem("userToken")
 				this.$store.dispatch("userLogin",false)
+				
 			}).catch((error) => {
 				console.log(error)
 			})

@@ -56,7 +56,7 @@ export default {
 			password:this.loginForm.password,
 			signOnPlatform:this.loginForm.signOnPlatform,
         }).then((response) => {
-			// console.log(response)
+			console.log(response)
 			if (response.data.code === 200) {
 				this.$message.success({
 					message: '登录成功',

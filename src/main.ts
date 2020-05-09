@@ -49,7 +49,7 @@ router.afterEach(() => {
 axios.interceptors.request.use(
   config => {
     if (localStorage.userToken) {  // 判断是否存在token，如果存在的话，则每个http header都加上token
-      config.headers.common['token'] = localStorage.userToken;
+      config.headers.common['Authorization'] = localStorage.userToken;
     }
     return config;
   },

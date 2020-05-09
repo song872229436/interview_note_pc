@@ -54,7 +54,7 @@ const routes = [
     path: '/',
     name: 'home',
 	meta:{
-		isLogin:false
+		isLogin:true
 	},
     component: () => import(/* webpackChunkName: "home" */ '@/views/home/index.vue')
   },
@@ -79,7 +79,7 @@ const routes = [
 	name: 'articleManage',
 	component: () => import(/* webpackChunkName: "articleManage" */ '@/views/articleManage/index.vue'),
 	meta:{
-		// isLogin:true
+		isLogin:true
 	}
   },
   {
@@ -87,7 +87,7 @@ const routes = [
   	name: 'release',
   	component: () => import(/* webpackChunkName: "release" */ '@/views/release/index.vue'),
 	meta:{
-		// isLogin:true
+		isLogin:true
 	}
   },
   {
@@ -96,28 +96,40 @@ const routes = [
 	redirect: '/personCenter/personInfo',
   	component: () => import(/* webpackChunkName: "personCenter" */ '@/views/personCenter/index.vue'),
 	meta:{
-		// isLogin:true
+		isLogin:true
 	},
 	children:[
 		{
 			path: 'personInfo',
 			name: 'personInfo',
 			component: () => import(/* webpackChunkName: "personInfo" */ '@/views/personCenter/personInfo/index.vue'),
+			meta:{
+				isLogin:true
+			},
 		},
 		{
 			path: 'adRevenue',
 			name: 'adRevenue',
 			component: () => import(/* webpackChunkName: "adRevenue" */ '@/views/personCenter/adRevenue/index.vue'),
+			meta:{
+				isLogin:true
+			},
 		},
 		{
 			path: 'adManage',
 			name: 'adManage',
 			component: () => import(/* webpackChunkName: "adManage" */ '@/views/personCenter/adManage/index.vue'),
+			meta:{
+				isLogin:true
+			},
 		},
 		{
 			path: 'score',
 			name: 'score',
 			component: () => import(/* webpackChunkName: "score" */ '@/views/personCenter/score/index.vue'),
+			meta:{
+				isLogin:true
+			},
 		}
 	]
   }

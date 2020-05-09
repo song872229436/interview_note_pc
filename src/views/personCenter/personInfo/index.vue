@@ -10,17 +10,17 @@
 					:show-file-list="false"
 					:on-success="handleAvatarSuccess"
 					:before-upload="beforeAvatarUpload">
-						<img v-if="imageUrl" :src="imageUrl" class="avatar">
+						<img v-if="userinfo.avatarUrl" :src="userinfo.avatarUrl" class="avatar">
 						<i v-else class="el-icon-plus avatar-uploader-icon"></i>
 				</el-upload>
 			</div>
 			<div class="person-info-right">
 				<div class="person-info-id">
-					<span>ID:19100452112</span>
+					<span>ID:{{userinfo.id}}</span>
 				</div>
 				<div class="person-info-hot">
-					<span>关注：52</span>
-					<span>粉丝：12</span>
+					<span>{{userinfo.nickName}}</span>
+					<!-- <span>粉丝：12</span> -->
 				</div>
 				<div class="person-info-adrevenue">
 					<span>收入：2020元</span>
@@ -29,21 +29,21 @@
 		</div>
 		<el-divider></el-divider>
 		<div class="person-info-form">
-			<el-form label-position="right" label-width="80px">
+			<el-form label-position="right" label-width="80px" :model="userinfo">
 				<el-form-item label="昵称:">
-					<el-input v-model="personInfoname"></el-input>
+					<el-input v-model="userinfo.nickName"></el-input>
 				</el-form-item>
 				<el-form-item label="性别:">
-					<el-input v-model="personInfosex"></el-input>
+					<el-input v-model="userinfo.sex"></el-input>
 				</el-form-item>
 				<el-form-item label="手机号:">
-					<el-input v-model="personInfophone"></el-input>
+					<el-input v-model="userinfo.phone"></el-input>
 				</el-form-item>
 				<el-form-item label="邮箱:">
-					<el-input v-model="personInfoemail"></el-input>
+					<el-input v-model="userinfo.email"></el-input>
 				</el-form-item>
 				<el-form-item label="提现账号:">
-					<el-input v-model="personInfoaccount"></el-input>
+					<el-input v-model="userinfo.cashAccount"></el-input>
 				</el-form-item>
 				<el-form-item>
 					<el-button type="primary" @click="submitForm">保存</el-button>
@@ -58,32 +58,14 @@ export default{
 	name:'personInfo',
 	data(){
 		return{
-			imageUrl:'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3593446461,3335288407&fm=26&gp=0.jpg',
-			personInfoname:'',
-			personInfosex:'',
-			personInfophone:'',
-			personInfoemail:'',
-			personInfoaccount:'',
-			personInfo:{
-				name:'EvenChen',
-				sex:'男',
-				phone:'15136378799',
-				email:'15136378799@163.com',
-				account:'15136378799'
-			}
+			userinfo:{}
 		}
 	},
 	created(){
 		// 初始化
-		this.personInfoname =this.personInfo.name
-		this.personInfosex = this.personInfo.sex
-		this.personInfophone = this.personInfo.phone
-		this.personInfoemail = this.personInfo.email
-		this.personInfoaccount = this.personInfo.account
 		this.$http.get('http://39.97.223.153:8080/api/user/user',{
-			
 		}).then((response) => {
-			console.log(response)
+			this.userinfo=response.data.data
 		}).catch((error) => {
 			console.log(error)
 		})
@@ -91,15 +73,29 @@ export default{
 	methods:{
 		// 提交表单
 		submitForm(){
-			this.personInfo.name = this.personInfoname
-			this.personInfo.sex = this.personInfosex
-			this.personInfo.phone = this.personInfophone
-			this.personInfo.email = this.personInfoemail
-			this.personInfo.account = this.personInfoaccount
+			this.$http.post('http://39.97.223.153:8080/api/user/user',{
+				// id:this.userinfo.id,
+				// avatarUrl:this.userinfo.avatarUrl,
+				// presentation:this.userinfo.presentation,
+				nickName: this.userinfo.nickName,
+				phone: this.userinfo.phone,
+				cashAccount: this.userinfo.cashAccount,
+			}).then((response) => {
+				console.log(response)
+			}).catch((error) => {
+				console.log(error)
+			})
 		},
 		// 头像上传成功回调
 		handleAvatarSuccess(res, file) {
-			this.imageUrl = URL.createObjectURL(file.raw);
+			// this.imageUrl = URL.createObjectURL(file.raw);
+			this.$http.post('http://39.97.223.153:8080/api/user/user',{
+				avatarUrl:URL.createObjectURL(file.raw)
+			}).then((response) => {
+				console.log(response.data.data.avatarUrl)
+			}).catch((error) => {
+				console.log(error)
+			})
 		},
 		// 头像上传前
 		beforeAvatarUpload(file) {
