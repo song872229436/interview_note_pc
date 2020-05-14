@@ -18,14 +18,6 @@ router.beforeEach((to, from, next) => {
 		store.state.isLogin = true
 		next()
 		
-		//如果已登录，还想进入登录注册页面，则重定向回首页
-		if(!to.meta.isLogin){
-			//iViewUi友好提示
-			//iViewUi.Message.error("请先退出登录")
-			next({
-				path: '/'
-			})
-		}
 	//如果标志不存在，即为未登录
 	}else{
 		//用户想进入需要登录的页面，则重定向回登录界面

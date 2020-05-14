@@ -51,7 +51,10 @@
       }
     },
     created() {
-      console.log('看到我你就输了')
+		console.log('看到我你就输了')
+		if(this.$store.getters.isLogin){
+			return this.$router.go(-1)
+		}
     },
 	methods:{
 		submitForm(){
@@ -59,6 +62,7 @@
 				email:this.registerForm.email,
 				password:this.registerForm.password
 			}).then((response) => {
+				this.$router.push({path:'/signIn'})
 				console.log(response)
 			}).catch((error) => {
 				console.log(error)
@@ -74,10 +78,13 @@
 	width: 100%;
 	height: 100%;
 	position: relative;
+	background-image: url('../../assets/img/1.jpg');
+	background-size: 100% 100%;
 	.logo{
 		margin-left: 50px;
 	}
 	.main{
+		background: rgba(255,255,255,0.3);
 		position: absolute;
 		left: 50%;
 		top: 50%;
@@ -85,14 +92,13 @@
 		min-width: 350px;
 		height: auto;
 		padding: 28px;
-		border: 1px solid #999999;
 		.title{
 			margin-bottom: 28px;
 			text-align: center;
 			.normal-title{
 				a{
 					font-size: 12px;
-					color: #999999;
+					color: #333333;
 					padding: 10px;
 					margin: 5px;
 					font-weight: 400;
@@ -115,6 +121,7 @@
 			}
 			.checkbox{
 				float: left;
+				color: #333333;
 			}
 			.signBtn{
 				margin-left: -25px;

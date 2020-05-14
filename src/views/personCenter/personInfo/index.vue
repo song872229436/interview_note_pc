@@ -6,7 +6,9 @@
 			<div class="person-info-left">
 				<el-upload
 					class="avatar-uploader"
-					action="https://jsonplaceholder.typicode.com/posts/"
+					action="http://39.97.223.153:8080/api/user/user"
+					:http-request="handleHttpRequest"
+					:headers="headers"
 					:show-file-list="false"
 					:on-success="handleAvatarSuccess"
 					:before-upload="beforeAvatarUpload">
@@ -58,50 +60,63 @@ export default{
 	name:'personInfo',
 	data(){
 		return{
-			userinfo:{}
+			userinfo:{},
+			imageUrl:''
 		}
 	},
 	created(){
 		// 初始化
 		this.$http.get('http://39.97.223.153:8080/api/user/user',{
 		}).then((response) => {
+			console.log(response)
 			this.userinfo=response.data.data
 		}).catch((error) => {
 			console.log(error)
 		})
 	},
+	computed:{
+		headers(){
+			return{
+				"Authorization":localStorage.getItem('userToken'),
+				"Content-Type":"multipart/form-data"
+			}
+		}
+	},
 	methods:{
 		// 提交表单
 		submitForm(){
 			this.$http.post('http://39.97.223.153:8080/api/user/user',{
-				// id:this.userinfo.id,
-				// avatarUrl:this.userinfo.avatarUrl,
-				// presentation:this.userinfo.presentation,
 				nickName: this.userinfo.nickName,
 				phone: this.userinfo.phone,
 				cashAccount: this.userinfo.cashAccount,
+				type:this.userinfo.type
 			}).then((response) => {
-				console.log(response)
+				// console.log(response)
 			}).catch((error) => {
 				console.log(error)
 			})
 		},
-		// 头像上传成功回调
-		handleAvatarSuccess(res, file) {
-			// this.imageUrl = URL.createObjectURL(file.raw);
+		handleHttpRequest(a){
+			console.log(a.file)
 			this.$http.post('http://39.97.223.153:8080/api/user/user',{
-				avatarUrl:URL.createObjectURL(file.raw)
+				avatarUrl:URL.createObjectURL(a.file),
+				type:this.userinfo.type
 			}).then((response) => {
-				console.log(response.data.data.avatarUrl)
+				// console.log(response)
+				this.userinfo=response.data.data
 			}).catch((error) => {
 				console.log(error)
 			})
+		},
+		//头像上传成功回调
+		handleAvatarSuccess(res, file) {
+			console.log(res)
+			console.log(file)
 		},
 		// 头像上传前
 		beforeAvatarUpload(file) {
 			const isJPG = file.type === 'image/jpeg';
 			const isLt2M = file.size / 1024 / 1024 < 2;
-	
 			if (!isJPG) {
 				this.$message.error('上传头像图片只能是 JPG 格式!');
 			}

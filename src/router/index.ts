@@ -54,7 +54,7 @@ const routes = [
     path: '/',
     name: 'home',
 	meta:{
-		isLogin:true
+		isLogin:false
 	},
     component: () => import(/* webpackChunkName: "home" */ '@/views/home/index.vue')
   },

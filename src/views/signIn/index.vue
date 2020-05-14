@@ -44,10 +44,14 @@ export default {
 			password: '',
 			signOnPlatform:'qq'
 		},
+		// isLogin:false
     }
   },
   created() {
     console.log('看到我你就输了2')
+	if(this.$store.getters.isLogin){
+		return this.$router.go(-1)
+	}
   },
   methods: {
     submitForm() {
@@ -68,7 +72,7 @@ export default {
 				localStorage.setItem('Flag', "isLogin")
 				//将用户名放入vuex
 				// this.$store.dispatch('setUser', response.data.data.user.email)
-				// this.$store.dispatch('setToken', response.data.data.token)
+				this.$store.dispatch('setToken', response.data.data.token)
 				this.$store.dispatch("userLogin",true)
 				//打印login状态
 				// console.log(this.$store.state.isLogin)
@@ -87,16 +91,30 @@ export default {
 }
 </script>
 
+<style lang="scss">
+.sign-in-container {
+	.el-form-item {
+		.el-input{
+			.el-input__inner{
+				background: rgba(255,255,255,0.4);
+			}
+		}
+	}
+}
+</style>
 <style lang="scss" scoped>
 // @import 'index.scss';
 .sign{
   width: 100%;
   height: 100%;
   position: relative;
+  background-image: url('../../assets/img/1.jpg');
+  background-size: 100% 100%;
   .logo {
     margin-left: 50px;
   }
   .main {
+	background: rgba(255,255,255,0.3);
     position: absolute;
     left: 50%;
     top: 50%;
@@ -104,14 +122,14 @@ export default {
     min-width: 350px;
     height: auto;
     padding: 28px;
-    border: 1px solid #999999;
+    // border: 1px solid #f9f9f9;
     .title {
 		margin-bottom: 28px;
 		text-align: center;
 		.normal-title {
 			a{
 				font-size: 12px;
-				color: #999999;
+				color: #333333;
 				padding: 10px;
 				margin: 5px;
 				font-weight: 400;
@@ -127,19 +145,26 @@ export default {
 		}
     }
     .sign-in-container {
-      padding-top: 14px;
-      max-width: 350px;
-      .el-form-item {
-        margin-bottom: 14px;
-      }
-      .forget {
-        float: right;
-        color: #6190e8;
-      }
-      .signBtn {
+		padding-top: 14px;
+		max-width: 350px;
+		.el-form-item {
+			margin-bottom: 14px;
+			.el-input{
+				.el-input__inner{
+					background: rgba(255,255,255,0.5);
+				}
+			}
+		}
+		.forget {
+			float: right;
+			color: red;
+		}
+		.signBtn {
 			text-align: center;
-			margin-left: -25px;
-      }
+			.el-button{
+				width: 100%;
+			}
+		}
     }
   }
 }

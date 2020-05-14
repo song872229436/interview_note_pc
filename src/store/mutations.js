@@ -12,6 +12,10 @@ const userStatus = (state,flag) =>{
 	// }
 	state.isLogin = flag
 }
+const userToken = (state,token) =>{
+	state.token = token
+}
 export default{
-	userStatus
+	userStatus,
+	userToken
 }

@@ -13,7 +13,7 @@ import actions from './actions'
 Vue.use(Vuex)
 
 const state={
-	// token: '',
+	token: '',
 	// currentUser:null,
 	isLogin:false,
 }

@@ -1,82 +1,44 @@
 <template>
-  <div class="sign">
+<div class="sign">
     <div class="logo">
       <a href="/">
         <img alt="Logo" src="../../assets/img/logo.png" />
       </a>
     </div>
     <div class="main">
-      <h4 class="reset-title">用邮箱重置密码</h4>
-      <div class="js-sign-in-container">
-        <form accept-charset="UTF-8" action="/passwords/reset_password_via_email" method="post">
-          <input name="utf8" type="hidden" value="✓" />
-          <input
-            name="authenticity_token"
-            type="hidden"
-            value="1CB4GMUapsHx/1FXa+cbfPmivM9M0PWDmsDN3ihAaQaMFI3yFCLSVVAv4FIYtnsrdeaTSSSh/7XbsT1IFxYQ4Q=="
-          />
-          <div class="input-prepend restyle no-radius">
-            <input id="email" name="email" placeholder="请输入注册或绑定的邮箱" type="text" />
-            <i class="iconfont ic-email"></i>
-          </div>
-          <div class="input-prepend restyle no-radius security-up-code js-security-number">
-            <input id="email_code" name="email_code" placeholder="邮箱验证码" type="text" />
-            <i class="iconfont ic-verify"></i>
-            <a
-              :class="{'disable':disable}"
-              class="btn-in-resend js-send-code-button"
-              href="javascript:void(0);"
-            >发送验证码</a>
-            <div>
-              <div class="captcha">
-                <input
-                  autocomplete="off"
-                  name="captcha[validation][challenge]"
-                  type="hidden"
-                  value="a3658fc5d44b43c6a234ef9d9fe1ca22"
-                />
-                <input
-                  autocomplete="off"
-                  name="captcha[validation][gt]"
-                  type="hidden"
-                  value="ec47641997d5292180681a247db3c92e"
-                />
-                <input autocomplete="off" name="captcha[validation][validate]" type="hidden" value />
-                <input autocomplete="off" name="captcha[validation][seccode]" type="hidden" value />
-                <input autocomplete="off" name="captcha[id]" type="hidden" value />
-                <div class="geetest" id="geetest-area"></div>
-              </div>
-            </div>
-          </div>
-          <div class="input-prepend restyle no-radius">
-            <input id="password" name="password" placeholder="请输入新密码" type="password" />
-            <i class="iconfont ic-password"></i>
-          </div>
-          <div class="input-prepend">
-            <input
-              id="password_confirmation"
-              name="password_confirmation"
-              placeholder="请再次输入新密码"
-              type="password"
-            />
-            <i class="iconfont ic-password"></i>
-          </div>
-          <input
-            class="sign-in-button"
-            data-disable-with="重置密码"
-            name="commit"
-            type="submit"
-            value="重置密码"
-          />
-        </form>
-        <router-link :to="{name:'signUp'}" class="return">
-          <i class="iconfont ic-back"></i>返回登录注册
-        </router-link>
-        <!-- <router-view class="return"
-        :to="{name:'signIn'}"><i class="iconfont ic-back"></i> 返回登录注册<router-view>-->
-      </div>
-    </div>
-  </div>
+		<h4 class="title">
+			<div class="normal-title">
+				重置密码
+			</div>
+		</h4>
+		<div class="sign-in-container">
+			<el-form label-position="top" ref="form" :model="resetForm" size="mini">
+				<el-form-item label="注册的邮箱:">
+					<el-input v-model="resetForm.emailOrPhone" size="small"></el-input>
+				</el-form-item>
+				<el-form-item label="邮箱验证码:" class="email-code">
+					<el-input v-model="resetForm.code" size="small"></el-input>
+					<el-button size="small">发送验证码</el-button>
+				</el-form-item>
+				<el-form-item label="请输入新密码:">
+					<el-input v-model="resetForm.password" size="small"></el-input>
+				</el-form-item>
+				<el-form-item label="请再次输入新密码:">
+					<el-input v-model="resetForm.passwords" size="small"></el-input>
+				</el-form-item>
+				<el-form-item class="signBtn">
+					<el-button type="primary" @click="resetPassword" size="small">重置密码</el-button>
+				</el-form-item>
+				<el-form-item class="return">
+					<router-link :to="{name:'signUp'}">
+						<i class="el-icon-d-arrow-left">返回登录注册</i>
+					</router-link>
+				</el-form-item>
+			</el-form>
+		</div>
+        
+	</div>
+</div>
 </template>
 
 <script>
@@ -85,16 +47,72 @@
     components: {},
     data: () => {
       return {
-        process: process.env.NODE_ENV,
-        disable: true
+        resetForm:{}
       }
     },
     created() {
       console.log('看到我你就输了')
-    }
+    },
+	methods:{
+		resetPassword(){
+			console.log("reset")
+		}
+	}
   }
 </script>
 
 <style lang="scss" scoped>
-  @import 'index.scss';
+  // @import 'index.scss';
+.sign{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	background-image: url('../../assets/img/1.jpg');
+	background-size: 100% 100%;
+	.logo {
+		margin-left: 50px;
+	}
+	.main {
+		background: rgba(255,255,255,0.3);
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		min-width: 350px;
+		height: auto;
+		padding: 28px;
+	.title {
+		margin-bottom: 28px;
+		text-align: center;
+	}
+	.sign-in-container {
+		padding-top: 14px;
+		max-width: 350px;
+			.el-form-item{
+				margin-bottom: 14px;
+			}
+			.email-code{
+				.el-input{
+					width: 70%;
+				}
+				.el-button{
+					width: 30%;
+				}
+			}
+			.signBtn{
+				text-align: center;
+				margin-left: -25px;
+			}
+			.return{
+				text-align: right;
+				a{
+					color: black;
+				}
+				i::before{
+					padding-right: 3px;
+				}
+			}
+		}
+	}
+}
 </style>
