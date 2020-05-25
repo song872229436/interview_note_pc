@@ -12,19 +12,19 @@
 			</div>
 		</h4>
 		<div class="sign-in-container">
-			<el-form label-position="top" ref="form" :model="resetForm" size="mini">
-				<el-form-item label="注册的邮箱:">
-					<el-input v-model="resetForm.emailOrPhone" size="small"></el-input>
+			<el-form label-position="top" ref="form" :rules="rules" :model="resetForm" size="mini">
+				<el-form-item label="注册的邮箱:" prop="email">
+					<el-input v-model="resetForm.email" size="small"></el-input>
 				</el-form-item>
-				<el-form-item label="邮箱验证码:" class="email-code">
+				<el-form-item label="邮箱验证码:" class="email-code" prop="code">
 					<el-input v-model="resetForm.code" size="small"></el-input>
-					<el-button size="small">发送验证码</el-button>
+					<el-button size="small" @click="sendCode">发送验证码</el-button>
 				</el-form-item>
-				<el-form-item label="请输入新密码:">
-					<el-input v-model="resetForm.password" size="small"></el-input>
+				<el-form-item label="请输入新密码:" prop="password">
+					<el-input type="password" v-model="resetForm.password" size="small"></el-input>
 				</el-form-item>
-				<el-form-item label="请再次输入新密码:">
-					<el-input v-model="resetForm.passwords" size="small"></el-input>
+				<el-form-item label="请再次输入新密码:" prop="surepassword">
+					<el-input type="password" v-model="resetForm.surepassword" size="small"></el-input>
 				</el-form-item>
 				<el-form-item class="signBtn">
 					<el-button type="primary" @click="resetPassword" size="small">重置密码</el-button>
@@ -45,10 +45,33 @@
   export default {
     name: 'signIn',
     components: {},
-    data: () => {
-      return {
-        resetForm:{}
-      }
+    data() {
+		const validatePass2 = (rule, value, callback) => {
+			if (value !== this.resetForm.password) {
+				callback(new Error('两次输入密码不一致!'));
+            } else {
+				callback();
+            }
+		};
+		return {
+        resetForm:{email:'1457435543@qq.com'},
+			rules:{
+				email:[
+					{ required:true, message:'请输入注册邮箱', trigger:'blur' },
+				],
+				code:[
+					{ required:true, message:'请输入邮箱验证码', trigger:'blur' },
+				],
+				password:[
+					{ required:true, message:'请输入新密码', trigger:'blur' },
+					{ min:6, max:16, message:'长度在6到16个字符', trigger:'blur' }
+				],
+				surepassword:[
+					{ validator:validatePass2, required:true, message:'请再次输入新密码', trigger:'blur' },
+					{ min:6, max:16, message:'长度在6到16个字符', trigger:'blur' }
+				]
+			}
+		}
     },
     created() {
       console.log('看到我你就输了')
@@ -56,6 +79,15 @@
 	methods:{
 		resetPassword(){
 			console.log("reset")
+		},
+		sendCode(){
+			this.$http.post('http://39.97.223.153:8080/api/user/email/{'+this.resetForm.email+'}', {
+				email:this.resetForm.email
+			}).then((response) => {
+				console.log(response)
+			}).catch((error) => {
+				console.log(error)
+			})
 		}
 	}
   }

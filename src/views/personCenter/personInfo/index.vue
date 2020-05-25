@@ -102,8 +102,8 @@ export default{
 				avatarUrl:URL.createObjectURL(a.file),
 				type:this.userinfo.type
 			}).then((response) => {
-				// console.log(response)
-				this.userinfo=response.data.data
+				console.log(response)
+				// this.userinfo=response.data.data
 			}).catch((error) => {
 				console.log(error)
 			})

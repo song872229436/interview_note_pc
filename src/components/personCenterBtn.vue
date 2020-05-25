@@ -1,13 +1,13 @@
 <template>
 	<div class="person-center-btn">
-		<router-link to="/personCenter">
+		<div @click="getClick">
 			<div class="person-center-btn-signIn">
 				<el-avatar shape="square" :size="28" fit="fill" src="avatarUrl"></el-avatar>
 			</div>
 			<!-- <div class="person-center-btn-mid">
 				<div>EvenChen</div>
 			</div> -->
-		</router-link>
+		</div>
 		<div class="person-center-btn-signOut">
 			<el-button type="text" @click="signOut">登出</el-button>
 		</div>
@@ -19,12 +19,15 @@ export default{
 	name:'personCenterBtn',
 	data(){
 		return{
-			avatarUrl:""
+			avatarUrl:"",
+			userType:""
 		}
 	},
 	created() {
 		this.$http.get('http://39.97.223.153:8080/api/user/user',{
 		}).then((response) => {
+			this.userType=response.data.data.type
+			localStorage.setItem('userType', response.data.data.type)
 			this.avtaarUrl=response.data.data.avatarUrl
 		}).catch((error) => {
 			console.log(error)
@@ -37,6 +40,7 @@ export default{
 				localStorage.removeItem("Flag")
 				localStorage.removeItem("userName")
 				localStorage.removeItem("userToken")
+				localStorage.removeItem("userType")
 				this.$store.dispatch("userLogin",false)
 				//判断当前页面是不是首页，不是就跳转到首页
 				if(this.$router.currentRoute.name!=="home"){
@@ -45,6 +49,14 @@ export default{
 			}).catch((error) => {
 				console.log(error)
 			})
+		},
+		getClick(){
+			// this.$router.push({path:'/personCenter'})
+			if(this.userType === 'user'){
+				this.$router.push({path:'/personCenter'})
+			}else if(this.userType === 'admin'){
+				this.$router.push({path:'/adminCenter'})
+			}
 		}
 	},
 }

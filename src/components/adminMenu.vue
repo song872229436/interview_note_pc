@@ -5,20 +5,23 @@
 			router
 			background-color="#f1f1f1"
 			text-color="#606266">
-			<el-menu-item index="/personCenter/personInfo">
-				<span slot="title">个人信息</span>
+			<el-menu-item index="">
+				<span slot="title">文章审核</span>
 			</el-menu-item>
-			<el-menu-item index="/personCenter/adRevenue">
-				<span slot="title">广告收入</span>
+			<el-menu-item index="">
+				<span slot="title">广告审核</span>
 			</el-menu-item>
-			<el-menu-item index="/personCenter/adManage">
-				<span slot="title">广告管理</span>
+			<el-menu-item index="">
+				<span slot="title">首页广告</span>
 			</el-menu-item>
-			<el-menu-item index="/personCenter/score">
-				<span slot="title">积分提现</span>
+			<el-menu-item index="">
+				<span slot="title">详情广告</span>
 			</el-menu-item>
-			<el-menu-item index="/articleManage">
-				<span slot="title">文章管理</span>
+			<el-menu-item index="">
+				<span slot="title">提现核销</span>
+			</el-menu-item>
+			<el-menu-item index="">
+				<span slot="title">流量统计</span>
 			</el-menu-item>
 		</el-menu>
 	</div>

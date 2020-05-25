@@ -14,12 +14,12 @@
         </div>
       </h4>
       <div class="sign-in-container">
-        <el-form label-position="top" ref="form" :model="loginForm" size="mini">
-          <el-form-item label="邮箱or手机:">
+        <el-form label-position="top" ref="form" :rules="rules" :model="loginForm" size="mini">
+          <el-form-item label="邮箱or手机:" prop="emailOrPhone">
             <el-input v-model="loginForm.emailOrPhone" size="small"></el-input>
           </el-form-item>
-          <el-form-item label="密码:">
-            <el-input v-model="loginForm.password" size="small"></el-input>
+          <el-form-item label="密码:" prop="password">
+            <el-input type="password" v-model="loginForm.password" size="small"></el-input>
           </el-form-item>
           <el-form-item>
             <router-link :to="{ name: 'forgePsw' }" class="forget">忘记密码?</router-link>
@@ -44,6 +44,14 @@ export default {
 			password: '',
 			signOnPlatform:'qq'
 		},
+		rules:{
+			emailOrPhone:[
+				{ required:true, message:'请输入邮箱', trigger:'blur' }
+			],
+			password:[
+				{ required:true, message:'请输入密码', trigger:'blur' }
+			]
+		}
 		// isLogin:false
     }
   },

@@ -18,14 +18,15 @@
 				label-position="top"
 				ref="form"
 				:model="registerForm"
+				:rules="rules"
 				size="mini">
-				<el-form-item label="邮箱:">
+				<el-form-item label="邮箱:" prop="email">
 					<el-input v-model="registerForm.email" size="small"></el-input>
 				</el-form-item>
-				<el-form-item label="密码:">
-					<el-input v-model="registerForm.password" size="small"></el-input>
+				<el-form-item label="密码:" prop="password">
+					<el-input type="password" v-model="registerForm.password" size="small"></el-input>
 				</el-form-item>
-				<el-form-item>
+				<el-form-item prop="checked">
 					<el-checkbox v-model="registerForm.checked" class="checkbox">已阅读《用户协议》</el-checkbox>
 				</el-form-item>
 				<el-form-item class="signBtn">
@@ -42,12 +43,31 @@
     name: 'signIn',
     components: {},
     data: () => {
+		const checked = (rule, value, callback) => {
+			if (value !== true) {
+				callback(new Error('请阅读用户协议，并勾选'));
+			} else {
+				callback();
+			}
+		};
       return {
         registerForm:{
 			email:'',
 			password:'',
-			checked:''
+			checked:false
 		},
+		rules:{
+			email:[
+				{ required:true, message:'请输入邮箱', trigger:'blur' }
+			],
+			password:[
+				{ required:true, message:'请输入密码', trigger:'blur' },
+				{ min:6, max:16, message:'长度在6到16个字符', trigger:'blur' }
+			],
+			checked:[
+				{ validator:checked, required:true, message:'请阅读用户协议，并勾选', trigger:'change' }
+			]
+		}
       }
     },
     created() {
